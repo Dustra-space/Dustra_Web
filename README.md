@@ -1,2 +1,44 @@
 # Dustra_Web
-Website for Liftoff Competition Proposal winner Dustra, a new type of engine using ionized fine dust to propell
+
+Website for **Dustra** — a new type of engine using charged fine dust as propellant, selected as
+one of 20 teams in the ETH Zurich | Space
+[Liftoff Challenge 2026/27](https://www.liftoff-challenge.ch/).
+
+## Run locally
+
+```
+npm install
+npm run dev
+```
+
+The dev server listens on <http://localhost:5180>.
+
+```
+npm run build
+npm run preview
+npm run typecheck
+```
+
+## Structure
+
+| Path | Purpose |
+| --- | --- |
+| `src/content.ts` | All site copy and figures, taken from the Liftoff proposal. Edit here, not in components. |
+| `src/components/Section.tsx` | Section shell: gutter label, two-tone heading, light/band/dark tone. |
+| `src/components/Accelerator.tsx` | Animated longitudinal section of the thruster. |
+| `src/components/Mission.tsx` | Transfer-trajectory diagram (LEO ⇄ low lunar orbit). |
+| `src/components/DustField.tsx` | Canvas dust field behind the hero. |
+| `src/index.css` | Design tokens, type scale, button and label styles, keyframes. |
+
+## Design notes
+
+The visual language follows the Liftoff Challenge site: white and `#f3f3f3` sections alternating
+with full-black bands, coral `#ff5841` as the only accent, small uppercase micro-type for labels,
+and two-tone headings where the second line is set in grey.
+
+Liftoff sets its type in Overused Grotesk, which is not redistributable via npm.
+[Inter Tight](https://fonts.google.com/specimen/Inter+Tight) is used instead — the closest open
+substitute at the same weights and tracking — and is self-hosted, so the site needs no network
+access at runtime.
+
+All animation is gated behind `prefers-reduced-motion`.

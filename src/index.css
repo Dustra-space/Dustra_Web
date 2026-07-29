@@ -1,0 +1,211 @@
+@import '@fontsource-variable/inter-tight';
+@import 'tailwindcss';
+
+/*
+ * Visual language mirrors the ETH | Space Liftoff Challenge site:
+ * light editorial base, coral accent, full-black bands, gutter labels,
+ * two-tone headings and small uppercase micro-type.
+ *
+ * Liftoff sets its type in Overused Grotesk, which is not redistributable
+ * via npm — Inter Tight is the closest open substitute at the same weights
+ * and tracking.
+ */
+@theme {
+  --color-coral: #ff5841;
+  --color-coral-dark: #e8462f;
+
+  --color-ink: #151515;
+  --color-black: #131313;
+  --color-paper: #ffffff;
+  --color-band: #f3f3f3;
+  --color-chalk: #ededed;
+
+  --color-grey: #5c5c5c;
+  --color-grey-soft: #9e9e9e;
+  --color-grey-dark: #7e7e7e;
+
+  --color-rule: rgba(21, 21, 21, 0.13);
+  --color-rule-dark: rgba(237, 237, 237, 0.16);
+
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-coral);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+  }
+}
+
+@layer components {
+  /* Micro-type used for section labels, dates and metadata. */
+  .label {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 6px;
+    padding: 0.625rem 0.85rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .btn-coral {
+    background-color: var(--color-coral);
+    color: #fff;
+  }
+
+  .btn-coral:hover {
+    background-color: var(--color-coral-dark);
+  }
+
+  .btn-ghost-dark {
+    background-color: rgba(237, 237, 237, 0.12);
+    color: var(--color-chalk);
+  }
+
+  .btn-ghost-dark:hover {
+    background-color: rgba(237, 237, 237, 0.22);
+  }
+
+  .btn-ghost-light {
+    border: 1px solid var(--color-rule);
+    color: var(--color-ink);
+  }
+
+  .btn-ghost-light:hover {
+    border-color: var(--color-ink);
+  }
+
+  /* Headline display sizes */
+  .h-hero {
+    font-size: clamp(2.75rem, 5.6vw, 5.1rem);
+    letter-spacing: -0.033em;
+    line-height: 1.02;
+  }
+
+  .h-section {
+    font-size: clamp(2rem, 3.6vw, 3.35rem);
+    letter-spacing: -0.031em;
+    line-height: 1.08;
+  }
+}
+
+/* Scroll-reveal ------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Diagram animations --------------------------------------------------- */
+
+/* Grains enter slowly and leave fast — ease-in carries the acceleration. */
+@keyframes dustRun {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(700px);
+    opacity: 0;
+  }
+}
+
+@keyframes dustFeed {
+  0% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+}
+
+@keyframes fieldPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
