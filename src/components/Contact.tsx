@@ -1,4 +1,5 @@
 import { challenge, contact, headings, project, sources } from '../content'
+import ContactForm from './ContactForm'
 import Logo from './Logo'
 import Reveal from './Reveal'
 import { Label } from './Section'
@@ -23,14 +24,11 @@ export default function Contact() {
               partners who want to see whether dust can move a spacecraft.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a href={`mailto:${contact.email}`} className="btn btn-coral">
-                {contact.email}
-              </a>
-              <span className="text-grey-dark text-[13px]">
-                {contact.person} · {contact.role}
-              </span>
-            </div>
+            <p className="text-grey-dark mt-4 text-[13px]">
+              Messages reach {contact.person}, {contact.role.toLowerCase()}.
+            </p>
+
+            <ContactForm />
           </Reveal>
         </div>
 

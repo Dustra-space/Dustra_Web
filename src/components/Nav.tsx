@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { contact, nav } from '../content'
+import { nav } from '../content'
 import Logo from './Logo'
 
 export default function Nav() {
@@ -45,7 +45,7 @@ export default function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={`mailto:${contact.email}`} className="btn btn-coral hidden sm:inline-flex">
+          <a href="#contact" className="btn btn-coral hidden sm:inline-flex">
             Get in touch
           </a>
 
@@ -78,7 +78,11 @@ export default function Nav() {
               </li>
             ))}
             <li>
-              <a href={`mailto:${contact.email}`} className="label text-coral block py-3">
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="label text-coral block py-3"
+              >
                 Get in touch
               </a>
             </li>
