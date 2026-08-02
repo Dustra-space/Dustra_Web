@@ -1,7 +1,8 @@
 # Dustra_Web
 
-Website for **Dustra** — a new type of engine using charged fine dust as propellant, selected as
-one of 20 teams in the ETH Zurich | Space
+Website for **DUSTRA** — an experimental controlled particle-acceleration platform for spacecraft
+testing, advanced propulsion research, and the future use of extraterrestrial materials. The
+project was selected as one of 20 teams in the ETH Zurich | Space
 [Liftoff Challenge 2026/27](https://www.liftoff-challenge.ch/).
 
 ## Run locally
@@ -23,10 +24,11 @@ npm run typecheck
 
 | Path | Purpose |
 | --- | --- |
-| `src/content.ts` | All site copy and figures, taken from the Liftoff proposal. Edit here, not in components. |
+| `src/content.ts` | Central site copy, verified project history, targets, applications, and roadmap. |
 | `src/components/Section.tsx` | Section shell: gutter label, two-tone heading, light/band/dark tone. |
 | `src/components/Accelerator.tsx` | Animated longitudinal section of the thruster. |
-| `src/components/Mission.tsx` | Transfer-trajectory diagram (LEO ⇄ low lunar orbit). |
+| `src/components/Mission.tsx` | Core thrust, kinetic-power, and specific-impulse relationships. |
+| `src/components/SmallBodies.tsx` | Responsibly framed asteroid and planetary-defense applications. |
 | `src/components/DustField.tsx` | Canvas dust field behind the hero. |
 | `src/index.css` | Design tokens, type scale, button and label styles, keyframes. |
 

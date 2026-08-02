@@ -4,43 +4,58 @@ import Section from './Section'
 
 export default function Status() {
   return (
-    <Section id="status" tone="band" {...headings.status} intro={<p>{status.next}</p>}>
+    <Section id="building" tone="band" {...headings.status} intro={<p>{status.next}</p>}>
       <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <p className="label text-grey-soft border-t border-[color:var(--color-rule)] pt-5">
-            Completed to date
-          </p>
-          <ul className="mt-6 space-y-5">
+          <p className="label text-grey-soft border-t border-[color:var(--color-rule)] pt-5">Technical priorities</p>
+          <ul className="mt-4 grid gap-x-7 sm:grid-cols-2">
+            {status.priorities.map((item) => (
+              <li key={item} className="flex gap-3 border-b border-[color:var(--color-rule)] py-3.5">
+                <span className="text-coral" aria-hidden="true">+</span>
+                <span className="text-grey leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal delay={80}>
+          <p className="label text-grey-soft border-t border-[color:var(--color-rule)] pt-5">Completed to date</p>
+          <ul className="mt-5 space-y-4">
             {status.done.map((item) => (
-              <li key={item.slice(0, 24)} className="flex gap-4">
-                <svg
-                  viewBox="0 0 16 16"
-                  className="text-coral mt-1.5 h-3.5 w-3.5 shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                >
-                  <path d="m3 8.5 3.2 3.2L13 5" />
-                </svg>
+              <li key={item} className="flex gap-4">
+                <span className="text-coral" aria-hidden="true">✓</span>
                 <span className="text-grey leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
         </Reveal>
+      </div>
 
-        <Reveal delay={100}>
-          <p className="label text-grey-soft border-t border-[color:var(--color-rule)] pt-5">
-            Known difficulties
-          </p>
-          <ul className="mt-2">
-            {status.risks.map((r) => (
-              <li key={r.title} className="border-b border-[color:var(--color-rule)] py-5">
-                <h3 className="text-[17px]">{r.title}</h3>
-                <p className="text-grey mt-1.5 leading-relaxed">{r.body}</p>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+      <div className="mt-20">
+        <Reveal><p className="label text-grey-soft">Initial engineering targets · not achieved results</p></Reveal>
+        <dl className="mt-5 grid border-l border-t border-[color:var(--color-rule)] sm:grid-cols-2 lg:grid-cols-4">
+          {status.targets.map((target, i) => (
+            <Reveal key={target.label} delay={(i % 4) * 40}>
+              <div className="h-full border-b border-r border-[color:var(--color-rule)] p-6">
+                <dd className="text-coral text-3xl font-medium tracking-[-0.03em]">{target.value}</dd>
+                <dt className="text-grey mt-2 leading-snug">{target.label}</dt>
+              </div>
+            </Reveal>
+          ))}
+        </dl>
+      </div>
+
+      <div className="mt-20">
+        <Reveal><p className="label text-grey-soft">Engineering challenges</p></Reveal>
+        <div className="mt-5 grid gap-x-12 md:grid-cols-2">
+          {status.risks.map((risk, i) => (
+            <Reveal key={risk.title} delay={i * 50}>
+              <article className="border-t border-[color:var(--color-rule)] py-6">
+                <h3 className="text-xl">{risk.title}</h3>
+                <p className="text-grey mt-2 leading-relaxed">{risk.body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </Section>
   )

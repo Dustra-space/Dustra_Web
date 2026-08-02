@@ -32,7 +32,7 @@ export default function Accelerator({ active }: Props) {
       viewBox="0 0 900 300"
       className="h-auto w-full"
       role="img"
-      aria-label="Cross-section of the Dustra thruster: dust feed, contact charging electrode, electrostatic acceleration channel and multi-channel exhaust."
+      aria-label="Cross-section of the DUSTRA experimental particle accelerator: controlled feed, charging, electrostatic acceleration, and beam diagnostics."
     >
       <defs>
         <linearGradient id="channel-fill" x1="0" x2="1">
@@ -96,7 +96,7 @@ export default function Accelerator({ active }: Props) {
           />
         ))}
         <text x="60" y="274" fill={MUTED} fontSize="11" letterSpacing="1.44">
-          REGOLITH FEED
+          CONTROLLED FEED
         </text>
       </g>
 
@@ -157,7 +157,7 @@ export default function Accelerator({ active }: Props) {
       <g>
         <path d="M700 108 880 62v176l-180-42Z" fill="url(#plume-fill)" />
         <text x={760} y={274} fill={MUTED} fontSize="11" letterSpacing="1.44">
-          EXHAUST · 40 km/s
+          BEAM DIAGNOSTICS
         </text>
       </g>
 

@@ -27,19 +27,6 @@ export default function Team() {
             </div>
           </Reveal>
         ))}
-
-        <Reveal delay={330} as="li">
-          <div className="grid gap-3 border-b border-[color:var(--color-rule)] py-7 md:grid-cols-[4rem_16rem_1fr] md:items-baseline md:gap-8">
-            <span className="text-grey-soft text-[13px]">06</span>
-            <div>
-              <h3 className="text-grey-soft text-xl">Open</h3>
-              <p className="label text-grey-soft mt-1.5">Bachelor thesis</p>
-            </div>
-            <p className="text-grey max-w-lg leading-relaxed">
-              Two bachelor thesis positions with D-MAVT would add full-time capacity to the build.
-            </p>
-          </div>
-        </Reveal>
       </ol>
 
       <Reveal delay={120}>

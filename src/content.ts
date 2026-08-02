@@ -1,14 +1,11 @@
-/**
- * Single source of truth for site copy.
- * Every figure below is taken from the Liftoff Challenge 2026/27 proposal.
- */
+/** Central source of truth for site copy and project claims. */
 
 export const project = {
   name: 'Dustra',
-  tagline: 'Thrust from dust.',
+  tagline: 'Dust to Thrust',
   summary:
-    'A high-Isp electrostatic thruster that produces thrust by accelerating charged dust particles through high-voltage fields — so a spacecraft can refuel from the dust already out there instead of hauling propellant up from Earth.',
-  thematicArea: 'Space propulsion',
+    'DUSTRA develops controlled, high-throughput particle acceleration for spacecraft testing, advanced propulsion, and the future use of lunar and asteroid resources.',
+  thematicArea: 'Particle acceleration & space systems',
   institution: 'ETH Zurich',
 } as const
 
@@ -26,272 +23,175 @@ export const challenge = {
   ],
 } as const
 
-/** Headline figures shown under the hero. */
 export const keyFigures = [
-  { value: '40', unit: 'km/s', label: 'Demonstrated particle exit velocity', foot: 'Mocker et al.' },
-  { value: '30', unit: 'N', label: 'Target thrust', foot: 'At full mass flow' },
-  { value: '1.5', unit: 'g/s', label: 'Target propellant mass flow', foot: 'Total, multi-channel' },
-  { value: '240', unit: 'kW', label: 'Electrical power required', foot: 'Moon ⇄ LEO round trip' },
+  { value: '100–200', unit: 'kV', label: 'Experimental system target', foot: 'Not yet achieved' },
+  { value: '1', unit: 'g/s', label: 'Continuous-flow target', foot: 'Not yet achieved' },
+  { value: '400', unit: 'm/s', label: 'Initial velocity target', foot: 'Not yet achieved' },
+  { value: '2026–27', unit: '', label: 'Core validation phase', foot: 'Development target' },
 ] as const
 
-/**
- * Section headings. `lead` is set in the primary colour and `trail` in grey —
- * the two-tone headline used throughout the Liftoff Challenge site.
- */
 export const headings = {
-  problem: {
-    label: 'The problem',
-    lead: 'Every kilogram beyond Earth orbit',
-    trail: 'is paid for twice.',
-  },
-  solution: {
-    label: 'The idea',
-    lead: 'Charge the dust. Accelerate the dust.',
-    trail: 'Skip the plasma.',
-  },
-  mission: { label: 'Mission case', lead: 'Moon ⇄ LEO,', trail: 'on 35 % of the ship.' },
-  vision: { label: 'Impact & long-term vision', lead: 'Four things', trail: 'this unlocks.' },
-  status: {
-    label: 'Where we are',
-    lead: 'Simulated, drawn, and checked against',
-    trail: 'people who build these things.',
-  },
-  challenge: { label: 'The challenge', lead: 'Liftoff Challenge', trail: '2026/27' },
-  roadmap: {
-    label: 'Project plan',
-    lead: 'From simulation to a charged',
-    trail: 'particle leaving a nozzle.',
-  },
-  resources: {
-    label: 'What we need',
-    lead: 'Compute, high voltage,',
-    trail: 'and two more pairs of hands.',
-  },
-  team: { label: 'Team', lead: 'Five mechanical engineers,', trail: 'one nozzle.' },
-  contact: {
-    label: 'Get in touch',
-    lead: 'Interested in the engine, the physics,',
-    trail: 'or funding the rig?',
-  },
+  problem: { label: 'Why now', lead: 'A laboratory platform first.', trail: 'A credible path to space.' },
+  solution: { label: 'The technology', lead: 'Charge particles. Control the beam.', trail: 'Measure the momentum.' },
+  mission: { label: 'The physics', lead: 'Electrical energy in.', trail: 'Solid-particle kinetic energy out.' },
+  vision: { label: 'Applications', lead: 'Useful in the laboratory now.', trail: 'Transformative over time.' },
+  status: { label: 'What we are building', lead: 'A controlled experiment,', trail: 'built around measurable thrust.' },
+  challenge: { label: 'Project history', lead: 'Liftoff Challenge', trail: '2026/27' },
+  roadmap: { label: 'Technology roadmap', lead: 'Validation before products.', trail: 'Products before flight.' },
+  team: { label: 'Team', lead: 'Five mechanical engineers,', trail: 'one hard physics problem.' },
+  contact: { label: 'Get in touch', lead: 'Partner on the experiment,', trail: 'the test platform, or the research.' },
 } as const
 
 export const problem = {
   body: [
-    'Optimistic estimates put the cost of delivering mass to lunar orbit at roughly USD 300,000 per kilogram. Beyond the Moon the cost scales exponentially with distance, because the propellant you bring must itself be accelerated — the tyranny of the rocket equation.',
-    'The Artemis programme targets this with in-situ propellant, but its route depends on large quantities of water. Water on the Moon is scarce and has better uses. If humanity is to travel beyond Earth orbit routinely, it needs a propellant that is already out there — and abundant.',
+    'The same core capability — feeding, charging, accelerating, and measuring solid particles in vacuum — can serve real laboratory needs before it becomes a spacecraft propulsion system.',
+    'DUSTRA is therefore developing an experimental platform first. Early systems could support dust-impact testing, vacuum particle research, diagnostics, and regolith-simulant experiments. Flight demonstrations and locally sourced reaction mass follow only after the underlying physics and hardware are validated.',
   ],
   stats: [
-    { value: '≈ $300,000', label: 'per kg to lunar orbit', foot: 'Astrobotic; Metzger & Autry (2022)' },
-    { value: 'Exponential', label: 'cost growth past lunar orbit', foot: 'Propellant accelerates propellant' },
-    { value: 'Scarce', label: 'lunar water for Artemis-style refuelling', foot: 'Contested by higher-value uses' },
+    { value: 'Now', label: 'Core laboratory validation', foot: 'Feeding · charging · measurement' },
+    { value: 'Next', label: 'Research and testing equipment', foot: 'A realistic first market' },
+    { value: 'Later', label: 'Propulsion and local resources', foot: 'Dependent on validation and infrastructure' },
   ],
 } as const
 
 export const solution = {
   body: [
-    'Ion, Hall-effect and magnetohydrodynamic thrusters must first vaporise or ionise their propellant, and only then accelerate it. Dustra removes that step: fine dust grains are contact-charged directly, then pulled through a high-voltage field and ejected. Onboard power goes into velocity instead of phase change.',
-    'Laboratory dust accelerators already reach exit speeds of up to 40 km/s — for single particles. The open problem is not velocity, it is mass flow. Our target is 1.5 g/s in total, delivered by a multi-channel architecture, which yields on the order of 30 N of thrust.',
-    'Moondust is largely silicates and metallic compounds, which take charge well at the levels our specific impulse needs. That makes a lunar base a refuelling station, and it makes asteroids fuel depots.',
+    'DUSTRA is a controlled particle accelerator designed to convert electrical energy into the kinetic energy of a solid-particle beam. Particles are metered into vacuum, given a controlled charge, accelerated through a high-voltage field, and characterized at the exhaust.',
+    'Unlike a conventional electric thruster, the near-term system is an experimental instrument, not a production engine. Its purpose is to establish repeatable charge-to-mass distributions, velocity, mass flow, beam shape, efficiency, and thrust.',
+    'Practical feedstocks require preparation. Screened grains, conductive coatings, standardized micro-pellets, magnetically selected particles, plasma-assisted charging, or molten droplets may be more controllable than untreated raw regolith.',
   ],
   stages: [
-    {
-      id: '01',
-      title: 'Dust feed',
-      detail: 'Regolith-like grains are metered into the charging channel — no vaporiser, no ioniser, no gas storage.',
-    },
-    {
-      id: '02',
-      title: 'Contact charging',
-      detail: 'Grains take a positive charge on a high-potential electrode. Charge-to-mass ratio sets the achievable exhaust velocity.',
-    },
-    {
-      id: '03',
-      title: 'Electrostatic acceleration',
-      detail: 'A 100–200 kV field accelerates the charged grains along the channel. Field geometry is the core design problem.',
-    },
-    {
-      id: '04',
-      title: 'Multi-channel exhaust',
-      detail: 'Channels run in parallel to raise mass flux — the scaling route suggested by Y. Li (University of Stuttgart).',
-    },
+    { id: '01', title: 'Controlled feed', detail: 'Meter screened grains or standardized particles into vacuum while preventing agglomeration and blockages.' },
+    { id: '02', title: 'Particle charging', detail: 'Apply and measure a repeatable charge-to-mass distribution using a controlled charging process.' },
+    { id: '03', title: 'High-voltage acceleration', detail: 'Accelerate micro- and nanoscale particles through a 100–200 kV experimental field while managing breakdown and contamination.' },
+    { id: '04', title: 'Beam diagnostics', detail: 'Measure velocity, mass flow, thrust, divergence, efficiency, erosion, and charging effects at the exhaust.' },
   ],
 } as const
 
-export const mission = {
-  body: 'For a round-trip manoeuvre from the Moon to low Earth orbit and back, a 200-tonne spacecraft would spend roughly 70 tonnes of propellant in total, drawing about 240 kW of electrical power. We see Dustra flying as the second half of a hybrid stack: chemical or hydrogen propulsion for the high-thrust climb out of a gravity well, then steady dust-driven acceleration for the large delta-v legs.',
-  figures: [
-    { value: '200 t', label: 'Spacecraft wet mass' },
-    { value: '70 t', label: 'Propellant, full round trip' },
-    { value: '240 kW', label: 'Electrical power' },
-    { value: 'In-situ', label: 'Refuelled at a lunar base' },
+export const physics = {
+  body:
+    'A particle beam produces thrust by carrying momentum away from the spacecraft. For mass flow ṁ and exhaust velocity vₑ, the governing ideal relationships are:',
+  equations: [
+    { expression: 'F = ṁvₑ', label: 'Thrust' },
+    { expression: 'P = ½ṁvₑ²', label: 'Ideal kinetic power' },
+    { expression: 'Iₛₚ = vₑ / g₀', label: 'Specific impulse' },
   ],
+  advantage:
+    'Solid particles could eventually allow spacecraft to use inexpensive, locally available reaction mass instead of carrying all propellant from Earth.',
+  caveat:
+    'That advantage depends on reliable processing and feed control. Raw lunar dust cannot simply be inserted into a finished engine; usable reaction mass may need screening, coating, shaping, selection, or melting.',
 } as const
 
-export const vision = [
+export const applications = [
   {
-    n: '01',
-    title: 'A simpler electric thruster',
-    body: 'No vaporisation, no ionisation stage. Onboard power is spent on acceleration alone, which makes better use of every watt a spacecraft can generate.',
+    horizon: 'Near term',
+    note: 'Research equipment and services',
+    items: ['Spacecraft shielding and material-impact testing', 'Lunar-dust testing', 'Vacuum particle sources', 'Particle charging and transport research', 'Regolith sorting and processing experiments', 'High-voltage accelerator research platforms'],
   },
   {
-    n: '02',
-    title: 'Affordable LEO → low lunar orbit',
-    body: 'Silicate and metallic moondust charges well enough to serve as propellant. Ships refuel in-situ at a lunar base and stop paying to lift fuel out of Earth’s gravity well.',
+    horizon: 'Medium term',
+    note: 'Subject to core validation',
+    items: ['Experimental solid-particle propulsion', 'Small-body proximity operations', 'Momentum management', 'Lunar or asteroid technology demonstrations', 'Transport of standardized particles, droplets, or micro-pellets', 'Local reaction-mass utilization'],
   },
   {
-    n: '03',
-    title: 'Economical deep-space cargo',
-    body: 'Higher cargo-to-fuel ratios for missions to Mars and beyond. Slower than chemical transfer — and far cheaper per kilogram delivered.',
-  },
-  {
-    n: '04',
-    title: 'Asteroid manoeuvring',
-    body: 'An asteroid can be its own propellant: consumed to move itself into lunar orbit for mining, or nudged off a collision course with Earth.',
+    horizon: 'Long term',
+    note: 'Future possibilities, not current products',
+    items: ['Asteroid-mining infrastructure', 'Planetary-defense mass drivers', 'Lunar surface-to-orbit transport', 'Cislunar cargo transport', 'Orbital construction feedstock', 'Propulsion using locally sourced extraterrestrial material'],
   },
 ] as const
 
 export const status = {
   done: [
-    'A low-level simulation environment for the engine is built and running.',
-    'A first simplified engine geometry exists in CAD.',
-    'Orbital-dynamics scripts estimate required Isp, mass flow, total energy and travel time.',
-    'Feasibility grounded in prior dust-accelerator literature.',
-    'Correspondence with Yanwei Li (University of Stuttgart), author of Li et al., on how existing accelerators behave and how he would scale them — his answer: go multi-channel.',
+    'A low-level simulation environment for the accelerator is built and running.',
+    'A first simplified accelerator geometry exists in CAD.',
+    'Orbital-dynamics scripts estimate specific impulse, mass flow, energy, and travel time.',
+    'The concept has been checked against prior dust-accelerator literature.',
+    'The team corresponded with Yanwei Li (University of Stuttgart) about accelerator behavior and multi-channel scaling.',
   ],
-  next: 'Engine geometry will be optimised with an iterative optimiser. Initial calculations and simulations suggest the concept is feasible; real-world testing is what confirms it.',
+  next:
+    'The most important current milestone is demonstrating stable, measurable thrust from a controlled solid-particle beam. The figures below are initial engineering targets, not achieved results.',
+  priorities: [
+    'Repeatable particle feeding in vacuum', 'Controlled charging and charge-to-mass measurement',
+    'Micro- and nanoscale particle acceleration', 'Particle velocity and direct thrust measurement',
+    'Beam divergence and electrical-to-kinetic efficiency', 'Electrode erosion, lifetime, and reliable high voltage',
+    'Autonomous blockage and fault handling', 'Beam neutralization and spacecraft charging control',
+  ],
+  targets: [
+    { value: '1 g/s', label: 'Continuous mass flow' },
+    { value: '> 1 km/s', label: 'Initial particle velocity' },
+    { value: '> 10%', label: 'Initial beam efficiency' },
+    { value: '< 10°', label: 'Beam divergence' },
+    { value: '≥ 1 hour', label: 'Stable early operation' },
+    { value: 'Repeatable', label: 'Charge-to-mass measurement' },
+    { value: 'Predictable', label: 'Electrode wear behavior' },
+  ],
   risks: [
-    {
-      title: 'Mass flow, not velocity',
-      body: 'Exit velocity at 40 km/s is established in the literature. Charging the majority of grains at 1.5 g/s is not — this is the central unknown.',
-    },
-    {
-      title: 'Electrostatic field design',
-      body: 'Channel and electrode geometry must hold a stable field at 100–200 kV without breakdown.',
-    },
-    {
-      title: 'Collective dust behaviour',
-      body: 'Space-charge and grain–grain interaction at high particle counts are far less predictable than single-particle physics.',
-    },
-    {
-      title: 'Ground-testing fidelity',
-      body: 'A representative proof of concept wants vacuum and microgravity; both are hard to approximate on a bench.',
-    },
+    { title: 'Particle variability', body: 'Charge-to-mass ratio and particle size can vary, changing acceleration and beam shape.' },
+    { title: 'Feed reliability', body: 'Fine particles agglomerate, block channels, contaminate surfaces, and complicate steady mass flow.' },
+    { title: 'High-voltage lifetime', body: 'Breakdown, electrode erosion, and accelerator contamination must remain controlled over long operation.' },
+    { title: 'System effects', body: 'Beam divergence, plume contamination, neutralization, spacecraft charging, and electrical efficiency require direct measurement.' },
   ],
 } as const
 
-export const milestones = [
+export const roadmap = [
   {
-    n: 1,
-    window: 'June – October',
-    title: 'Design & simulation',
-    body: 'Design a manufacturable, cost-effective prototype concept for charging and accelerating particles, using physics simulation.',
-    target: 'Validation of electric fields and particle behaviour',
-    state: 'active',
+    n: 1, window: '2026–2027', title: 'Core validation', state: 'active',
+    summary: 'Build a safe, instrumented laboratory accelerator and close the momentum balance.',
+    goals: ['Safe 100–200 kV experimental power system', 'Vacuum-compatible particle injection', 'Controlled charging and acceleration', 'Velocity and mass-flow measurement', 'Thrust-balance validation', 'Lunar and asteroid regolith-simulant experiments', 'Initial efficiency and erosion characterization'],
   },
   {
-    n: 2,
-    window: 'October – January',
-    title: 'Prototype development',
-    body: 'Build and commission the high-voltage test rig.',
-    target: 'Stable operation across 100–200 kV',
-    state: 'planned',
+    n: 2, window: '2027–2030', title: 'Research & testing products', state: 'planned',
+    summary: 'Translate validated subsystems into useful laboratory equipment and services.',
+    goals: ['Controlled dust-impact testing', 'Vacuum-laboratory particle sources', 'Lunar-dust and asteroid-regolith simulators', 'Spacecraft-material erosion testing', 'Charged-particle diagnostics', 'Custom accelerator test benches', 'Electrostatic transport and separation research'],
   },
   {
-    n: 3,
-    window: 'February – March',
-    title: 'Initial experimental validation',
-    body: 'Demonstrate successful particle charging and make first acceleration attempts.',
-    target: 'Measurable, repeatable velocity increase',
-    state: 'planned',
+    n: 3, window: '2030–2034', title: 'In-space demonstration', state: 'planned',
+    summary: 'Test compact, long-duration particle acceleration in the orbital environment.',
+    goals: ['Compact propulsion demonstrator', 'Long-duration vacuum operation', 'Standardized particles, pellets, or molten droplets', 'Beam neutralization', 'Orbital plume characterization', 'Millinewton-to-newton demonstrations', 'Hosted-payload or small-spacecraft experiment'],
   },
   {
-    n: 4,
-    window: 'Optional',
-    title: 'Iteration & scaling',
-    body: 'Optimise the prototype concept to scale up, reiterate and push toward flight-relevant throughput.',
-    target: '700 m/s at 1 g/s',
-    state: 'stretch',
+    n: 4, window: '2033–2038+', title: 'Extraterrestrial-resource propulsion', state: 'future',
+    summary: 'Investigate propulsion and transport systems that use processed local material.',
+    goals: [
+      '20 km/s particle velocity at 1 g/s mass flow: 20 N thrust and 200 kW ideal kinetic power',
+      'Scaled 30 N target at 20 km/s: 1.5 g/s mass flow and 300 kW ideal kinetic power',
+      'Processed lunar-regolith propulsion',
+      'Asteroid-surface maneuvering and despinning',
+      'Local transport of mined material',
+      'Cargo tugs using local reaction mass',
+      'Sustained deflection using surface material',
+      'Lunar mass drivers and orbital catchers',
+    ],
   },
 ] as const
 
-export const resources = {
-  needs: [
-    { title: 'Euler Cluster access', body: 'Multi-physics modelling of field geometry and particle transport.' },
-    { title: 'High-voltage test facility', body: 'Safe operation at approximately 250 W, 160 kV, 1 g/s.' },
-    { title: 'Basic manufacturing', body: '3D printing and laser cutting for rig and channel hardware.' },
-  ],
-  support: [
-    { title: 'D-MAVT', body: 'One or two bachelor theses, adding two full-time contributors to the effort.' },
-    { title: 'D-EAPS', body: 'Expert input on mineral composition and regolith analogues.' },
-  ],
-  gaps: ['High-voltage systems', 'Materials science'],
+export const smallBodies = {
+  mining: 'On a small body, processed local material could serve as reaction mass for despinning, repositioning, mining operations, and slow cargo transport. Very low thrust can accumulate useful momentum over long missions, but standardized feedstock is more realistic than uncontrolled raw dust.',
+  defense: 'An asteroid-mounted mass driver could eject surface material to create continuous reaction thrust. This future approach is most relevant when a hazardous object is detected many years in advance. Kinetic impactors are more mature for near-term planetary defense; particle-based mass drivers would be a complementary method, not a universal replacement.',
 } as const
 
 export const team = {
-  blurb:
-    'Five sixth-semester BSc Mechanical Engineering students at ETH Zurich. The team has worked together before, and a deliberately broad spread of interests keeps the arguments productive.',
+  blurb: 'Five sixth-semester BSc Mechanical Engineering students at ETH Zurich. The team combines simulation, structures, machine learning, electronics, experimental setups, and CAD.',
   members: [
-    {
-      name: 'Ada Batu Yıldırım',
-      focus: 'CFD & simulation',
-      skills: ['CFD for rocketry', 'Electronics', 'Physics simulation', 'Embedded systems', 'Management'],
-    },
-    {
-      name: 'Marie Frühauf',
-      focus: 'Structures & test safety',
-      skills: ['Structures & FEA', 'MRL drone focus project', 'Safe testing', 'Sponsoring'],
-    },
-    {
-      name: 'Loïc Cabon',
-      focus: 'Machine learning',
-      skills: ['Machine learning', 'Physics domain approximations'],
-    },
-    {
-      name: 'Lennart Gröger',
-      focus: 'Project lead',
-      skills: ['Structures & FEA for UUVs', 'Project management', 'Experimental setups'],
-    },
-    {
-      name: 'Saskia Tristani',
-      focus: 'CAD',
-      skills: ['CAD'],
-    },
+    { name: 'Ada Batu Yıldırım', focus: 'CFD & simulation', skills: ['CFD for rocketry', 'Electronics', 'Physics simulation', 'Embedded systems', 'Management'] },
+    { name: 'Marie Frühauf', focus: 'Structures & test safety', skills: ['Structures & FEA', 'MRL drone focus project', 'Safe testing', 'Sponsoring'] },
+    { name: 'Loïc Cabon', focus: 'Machine learning', skills: ['Machine learning', 'Physics domain approximations'] },
+    { name: 'Lennart Gröger', focus: 'Project lead', skills: ['Structures & FEA for UUVs', 'Project management', 'Experimental setups'] },
+    { name: 'Saskia Tristani', focus: 'CAD', skills: ['CAD'] },
   ],
 } as const
 
-export const contact = {
-  person: 'Lennart Gröger',
-  role: 'Contact person',
-  email: 'lgroeger@student.ethz.ch',
-} as const
+export const contact = { person: 'Lennart Gröger', role: 'Contact person', email: 'lgroeger@student.ethz.ch' } as const
 
 export const sources = [
-  {
-    n: 1,
-    text: 'Astrobotic Technology, Inc. (n.d.). Landers.',
-    href: 'https://www.astrobotic.com/lunar-delivery/landers/',
-  },
-  {
-    n: 2,
-    text: 'Metzger, P., & Autry, G. (2022). The cost of lunar landing pads with a trade study of construction methods. New Space, 11(2), 94–123.',
-    href: 'https://doi.org/10.1089/space.2022.0015',
-  },
-  {
-    n: 3,
-    text: 'A. Mocker et al. A 2 MV Van de Graaff accelerator as a tool for planetary and impact physics research. Review of Scientific Instruments.',
-    href: null,
-  },
-  {
-    n: 4,
-    text: 'Y. Li et al. Upgrades of a Small Electrostatic Dust Accelerator at the University of Stuttgart.',
-    href: 'https://doi.org/10.3390/app13074441',
-  },
+  { n: 1, text: 'A. Mocker et al. A 2 MV Van de Graaff accelerator as a tool for planetary and impact physics research. Review of Scientific Instruments.', href: null },
+  { n: 2, text: 'Y. Li et al. Upgrades of a Small Electrostatic Dust Accelerator at the University of Stuttgart.', href: 'https://doi.org/10.3390/app13074441' },
 ] as const
 
 export const nav = [
-  { href: '#how', label: 'The idea' },
-  { href: '#mission', label: 'Mission' },
-  { href: '#challenge', label: 'Challenge' },
+  { href: '#how', label: 'Technology' },
+  { href: '#building', label: 'Building now' },
+  { href: '#applications', label: 'Applications' },
   { href: '#roadmap', label: 'Roadmap' },
   { href: '#team', label: 'Team' },
 ] as const

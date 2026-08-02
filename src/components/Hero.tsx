@@ -34,10 +34,10 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={70}>
-          <h1 className="h-hero mt-7 max-w-4xl text-white">
-            Thrust from
+          <h1 className="h-hero mt-7 max-w-5xl text-white">
+            Accelerating particles.
             <br />
-            <span className="text-grey-dark">dust.</span>
+            <span className="text-grey-dark">Enabling new space systems.</span>
           </h1>
         </Reveal>
 
@@ -50,10 +50,10 @@ export default function Hero() {
         <Reveal delay={210}>
           <div className="mt-9 flex flex-wrap items-center gap-2.5">
             <a href="#how" className="btn btn-coral">
-              How it works
+              Explore the technology
             </a>
             <a href="#roadmap" className="btn btn-ghost-dark">
-              Project roadmap
+              View our roadmap
             </a>
           </div>
         </Reveal>
@@ -64,7 +64,7 @@ export default function Hero() {
         <Reveal delay={280}>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <a
-              href="#problem"
+              href="#market"
               className="label text-chalk/55 hover:text-chalk order-2 flex items-center gap-2.5 transition-colors lg:order-1"
             >
               <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.4">

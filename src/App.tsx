@@ -3,9 +3,9 @@ import Hero from './components/Hero'
 import Mission from './components/Mission'
 import Nav from './components/Nav'
 import Problem from './components/Problem'
-import Resources from './components/Resources'
 import Roadmap from './components/Roadmap'
 import Solution from './components/Solution'
+import SmallBodies from './components/SmallBodies'
 import Status from './components/Status'
 import Team from './components/Team'
 import Timeline from './components/Timeline'
@@ -24,7 +24,7 @@ export default function App() {
         <Status />
         <Timeline />
         <Roadmap />
-        <Resources />
+        <SmallBodies />
         <Team />
       </main>
       <Contact />

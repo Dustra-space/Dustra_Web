@@ -1,19 +1,21 @@
-import { headings, vision } from '../content'
+import { applications, headings } from '../content'
 import Reveal from './Reveal'
 import Section from './Section'
 
 export default function Vision() {
   return (
-    <Section id="vision" {...headings.vision}>
-      <div className="grid gap-x-16 gap-y-14 md:grid-cols-2">
-        {vision.map((v, i) => (
-          <Reveal key={v.n} delay={i * 70}>
-            <article className="group border-t border-[color:var(--color-rule)] pt-6">
-              <span className="text-grey-soft group-hover:text-coral text-[13px] transition-colors duration-300">
-                {v.n}
-              </span>
-              <h3 className="mt-4 text-2xl">{v.title}</h3>
-              <p className="text-grey mt-3 max-w-lg leading-relaxed">{v.body}</p>
+    <Section id="applications" {...headings.vision}>
+      <div className="grid gap-5 lg:grid-cols-3">
+        {applications.map((group, index) => (
+          <Reveal key={group.horizon} delay={index * 80}>
+            <article className="h-full rounded-xl border border-[color:var(--color-rule)] p-6 md:p-8">
+              <p className="label text-coral">{group.note}</p>
+              <h3 className="mt-4 text-3xl">{group.horizon}</h3>
+              <ul className="mt-7 border-t border-[color:var(--color-rule)]">
+                {group.items.map((item) => (
+                  <li key={item} className="text-grey border-b border-[color:var(--color-rule)] py-3.5 leading-snug">{item}</li>
+                ))}
+              </ul>
             </article>
           </Reveal>
         ))}

@@ -21,7 +21,7 @@ export default function Contact() {
             </h2>
             <p className="text-grey-dark mt-8 max-w-2xl">
               We are looking for high-voltage and materials expertise, test-facility access, and
-              partners who want to see whether dust can move a spacecraft.
+              partners with particle-source, dust-impact, erosion, or regolith research needs.
             </p>
 
             <p className="text-grey-dark mt-4 text-[13px]">

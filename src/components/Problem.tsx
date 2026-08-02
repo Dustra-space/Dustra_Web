@@ -5,7 +5,7 @@ import Section from './Section'
 export default function Problem() {
   return (
     <Section
-      id="problem"
+      id="market"
       {...headings.problem}
       intro={problem.body.map((p) => (
         <p key={p.slice(0, 24)} className="mb-5 last:mb-0">
