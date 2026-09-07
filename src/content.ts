@@ -181,7 +181,7 @@ export const team = {
   ],
 } as const
 
-export const contact = { person: 'Lennart Gröger', role: 'Contact person', email: 'lgroeger@student.ethz.ch' } as const
+export const contact = { person: 'Lennart Gröger', role: 'Contact person', email: 'contact@dustra.space' } as const
 
 export const sources = [
   { n: 1, text: 'A. Mocker et al. A 2 MV Van de Graaff accelerator as a tool for planetary and impact physics research. Review of Scientific Instruments.', href: null },
