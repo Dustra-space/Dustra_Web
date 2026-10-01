@@ -21,7 +21,7 @@ export default function Contact() {
             </h2>
             <p className="text-grey-dark mt-8 max-w-2xl">
               We are looking for high-voltage and materials expertise, test-facility access, and
-              partners with particle-source, dust-impact, erosion, or regolith research needs.
+              collaborators and sponsors interested in particle charging and space propulsion.
             </p>
 
             <p className="text-grey-dark mt-4 text-[13px]">
@@ -34,11 +34,11 @@ export default function Contact() {
 
         <Reveal delay={100} className="mt-24">
           <p className="label text-grey-dark border-t border-[color:var(--color-rule-dark)] pt-5">
-            References
+            Research background
           </p>
           <ol className="mt-6 grid gap-4 md:grid-cols-2">
             {sources.map((s) => (
-              <li key={s.n} className="text-grey-dark flex gap-3 text-[15px] leading-relaxed">
+              <li key={s.n} id={`reference-${s.n}`} className="text-grey-dark flex gap-3 text-[15px] leading-relaxed">
                 <span className="shrink-0">[{s.n}]</span>
                 {s.href ? (
                   <a
