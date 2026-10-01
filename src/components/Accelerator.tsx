@@ -32,7 +32,7 @@ export default function Accelerator({ active }: Props) {
       viewBox="0 0 900 300"
       className="h-auto w-full"
       role="img"
-      aria-label="Cross-section of the DUSTRA experimental particle accelerator: controlled feed, charging, electrostatic acceleration, and beam diagnostics."
+      aria-label="Conceptual illustration of particle acceleration: controlled feed, charging, electrostatic acceleration, and beam diagnostics."
     >
       <defs>
         <linearGradient id="channel-fill" x1="0" x2="1">
@@ -63,15 +63,6 @@ export default function Accelerator({ active }: Props) {
           strokeDasharray="3 4"
         />
       )}
-
-      {/* Ghosted parallel channels — the multi-channel architecture */}
-      <g fill="none" stroke="#ff5841" strokeWidth="1" opacity="0.3">
-        <rect x={185} y={58} width={515} height={14} rx={3} strokeDasharray="4 5" />
-        <rect x={185} y={228} width={515} height={14} rx={3} strokeDasharray="4 5" />
-      </g>
-      <text x={185} y={46} fill={MUTED} fontSize="10" letterSpacing="1.44">
-        × N PARALLEL CHANNELS
-      </text>
 
       {/* ---- 01 Dust feed ---- */}
       <g>
@@ -149,7 +140,7 @@ export default function Accelerator({ active }: Props) {
           )
         })}
         <text x={400} y={274} fill="#ff5841" fontSize="11" letterSpacing="1.44">
-          100 – 200 kV ACCELERATION
+          ELECTRIC ACCELERATION
         </text>
       </g>
 

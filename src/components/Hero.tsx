@@ -1,4 +1,4 @@
-import { challenge, keyFigures, project } from '../content'
+import { challenge, heroPrinciples, project } from '../content'
 import DustField from './DustField'
 import Reveal from './Reveal'
 
@@ -35,9 +35,9 @@ export default function Hero() {
 
         <Reveal delay={70}>
           <h1 className="h-hero mt-7 max-w-5xl text-white">
-            Accelerating particles.
+            Propellant from space.
             <br />
-            <span className="text-grey-dark">Enabling new space systems.</span>
+            <span className="text-grey-dark">For the journey ahead.</span>
           </h1>
         </Reveal>
 
@@ -50,16 +50,16 @@ export default function Hero() {
         <Reveal delay={210}>
           <div className="mt-9 flex flex-wrap items-center gap-2.5">
             <a href="#how" className="btn btn-coral">
-              Explore the technology
+              Explore the concept
             </a>
-            <a href="#roadmap" className="btn btn-ghost-dark">
-              View our roadmap
+            <a href="#building" className="btn btn-ghost-dark">
+              What we’re building
             </a>
           </div>
         </Reveal>
       </div>
 
-      {/* Bottom rail — figures, scroll cue and the institutional lockup */}
+      {/* Bottom rail — principles, scroll cue and the institutional lockup */}
       <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-8">
         <Reveal delay={280}>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -74,19 +74,18 @@ export default function Hero() {
             </a>
 
             <div className="order-1 flex flex-col items-start gap-6 lg:order-2 lg:flex-row lg:items-end">
-              <dl className="grid grid-cols-2 gap-x-10 gap-y-5 rounded-lg bg-white/[0.07] px-6 py-5 backdrop-blur-md sm:grid-cols-4">
-                {keyFigures.map((f) => (
+              <dl className="grid grid-cols-1 gap-x-8 gap-y-5 rounded-lg bg-white/[0.07] px-6 py-5 backdrop-blur-md sm:grid-cols-3">
+                {heroPrinciples.map((f) => (
                   <div key={f.label}>
                     <dd className="flex items-baseline gap-1 text-white">
-                      <span className="text-2xl font-medium tracking-[-0.03em]">{f.value}</span>
-                      <span className="text-coral text-sm">{f.unit}</span>
+                      <span className="text-lg font-medium tracking-[-0.03em]">{f.value}</span>
                     </dd>
-                    <dt className="text-chalk/55 mt-1 text-[11px] leading-tight">{f.label}</dt>
+                    <dt className="text-chalk/55 mt-1 text-[13px] leading-tight">{f.label}</dt>
                   </div>
                 ))}
               </dl>
 
-              <div className="text-chalk/55 shrink-0 text-[11px] leading-snug">
+              <div className="text-chalk/55 shrink-0 text-[13px] leading-snug">
                 <p className="text-chalk font-medium">ETH Zürich | Space</p>
                 <p>Liftoff Challenge 2026/27</p>
               </div>

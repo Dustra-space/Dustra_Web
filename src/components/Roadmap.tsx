@@ -4,8 +4,8 @@ import Section from './Section'
 
 const badges = {
   active: { text: 'In development', className: 'bg-coral text-white' },
-  planned: { text: 'Development target', className: 'border border-[color:var(--color-rule-dark)] text-grey-dark' },
-  future: { text: 'Long-term objective', className: 'border border-dashed border-[color:var(--color-rule-dark)] text-grey-dark' },
+  planned: { text: 'Next step', className: 'border border-[color:var(--color-rule-dark)] text-grey-dark' },
+  future: { text: 'Future direction', className: 'border border-dashed border-[color:var(--color-rule-dark)] text-grey-dark' },
 }
 
 export default function Roadmap() {
@@ -14,7 +14,7 @@ export default function Roadmap() {
       id="roadmap"
       tone="dark"
       {...headings.roadmap}
-      intro={<p>Dates are development targets, not guaranteed technical or commercial timelines. Each phase depends on evidence from the one before it.</p>}
+      intro={<p>Each step is guided by what we learn from the one before it.</p>}
     >
       <ol className="border-t border-[color:var(--color-rule-dark)]">
         {roadmap.map((phase, index) => {

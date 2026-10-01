@@ -20,10 +20,18 @@ export default function Solution() {
     >
       <Reveal className="rounded-xl bg-white/[0.035] p-4 md:p-8">
         <div className="mb-5 flex items-center justify-between">
-          <p className="label text-grey-dark">Schematic — longitudinal section</p>
+          <p className="label text-grey-dark">Conceptual illustration</p>
           <p className="label text-grey-dark">Not to scale</p>
         </div>
         <Accelerator active={active} />
+      </Reveal>
+
+      <Reveal className="mt-6 text-grey-dark max-w-3xl leading-relaxed">
+        <p>{solution.priorArt}</p>
+        <p className="mt-3 text-sm">
+          Research background: <a href="#reference-1" className="underline underline-offset-4 hover:text-coral">Kiel contact charging [1]</a>
+          {' · '}<a href="#reference-2" className="underline underline-offset-4 hover:text-coral">Dust accelerator facilities [2, 3]</a>
+        </p>
       </Reveal>
 
       <ol className="mt-4 border-t border-[color:var(--color-rule-dark)]">

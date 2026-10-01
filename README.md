@@ -1,7 +1,6 @@
 # Dustra_Web
 
-Website for **DUSTRA** — an experimental controlled particle-acceleration platform for spacecraft
-testing, advanced propulsion research, and the future use of extraterrestrial materials. The
+Website for **DUSTRA** — an ETH Zurich project exploring electrostatic dust propulsion using processed lunar or asteroid material. The immediate next step is a laboratory prototype. The
 project was selected as one of 20 teams in the ETH Zurich | Space
 [Liftoff Challenge 2026/27](https://www.liftoff-challenge.ch/).
 
@@ -24,13 +23,15 @@ npm run typecheck
 
 | Path | Purpose |
 | --- | --- |
-| `src/content.ts` | Central site copy, verified project history, targets, applications, and roadmap. |
+| `src/content.ts` | Central site copy, project direction, status, research background, and roadmap. |
 | `src/components/Section.tsx` | Section shell: gutter label, two-tone heading, light/band/dark tone. |
-| `src/components/Accelerator.tsx` | Animated longitudinal section of the thruster. |
-| `src/components/Mission.tsx` | Core thrust, kinetic-power, and specific-impulse relationships. |
-| `src/components/SmallBodies.tsx` | Responsibly framed asteroid and planetary-defense applications. |
+| `src/components/Accelerator.tsx` | Animated conceptual illustration of feeding, charging, acceleration, and measurement. |
 | `src/components/DustField.tsx` | Canvas dust field behind the hero. |
 | `src/index.css` | Design tokens, type scale, button and label styles, keyframes. |
+
+## Public claims
+
+The page separates the long-term local-propellant vision from DUSTRA’s current design and simulation work. Published contact-charging and accelerator results belong to the cited researchers. Continuous useful mass flow and propulsion performance remain to be validated. Keep public copy broad; do not add unmeasured performance figures or fixed flight-delivery dates.
 
 ## Design notes
 

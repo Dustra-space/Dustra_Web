@@ -29,11 +29,6 @@ export default function Team() {
         ))}
       </ol>
 
-      <Reveal delay={120}>
-        <p className="label text-grey-soft mt-8">
-          All members are in their 6th semester of the BSc in Mechanical Engineering at ETH Zurich
-        </p>
-      </Reveal>
     </Section>
   )
 }
