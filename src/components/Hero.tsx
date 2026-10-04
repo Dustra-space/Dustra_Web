@@ -2,6 +2,7 @@ import { challenge, hero } from '../content'
 import DustField from './DustField'
 import HeroArt from './HeroArt'
 import Reveal from './Reveal'
+import { Streak } from './Section'
 
 export default function Hero() {
   return (
@@ -18,8 +19,9 @@ export default function Hero() {
               href={challenge.url}
               target="_blank"
               rel="noreferrer"
-              className="label bg-rust text-paper hover:bg-rust-deep inline-flex items-center gap-2 rounded-full px-3.5 py-2 transition-colors"
+              className="label text-rust hover:text-rust-deep inline-flex items-center gap-3 transition-colors"
             >
+              <Streak className="text-rust" />
               {challenge.name} · {challenge.status}
             </a>
           </Reveal>
