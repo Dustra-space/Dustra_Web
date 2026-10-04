@@ -10,7 +10,7 @@ export const site = {
   name: 'DUSTRA',
   field: 'Electrostatic dust propulsion',
   institution: 'ETH Zurich',
-  email: 'contact@dustra.space',
+  email: 'lgroeger@ethz.ch',
   contactPerson: 'Lennart Gröger',
   contactRole: 'Project lead',
 } as const
@@ -135,28 +135,28 @@ export const team: { eyebrow: string; title: string; blurb: string; members: Mem
   members: [
     {
       name: 'Lennart Gröger',
-      role: 'Project lead',
-      bio: 'Placeholder: what Lennart works on at DUSTRA, in one sentence.',
+      role: 'Particle Feed',
+      bio: 'Designs the hopper and feed system that delivers a steady, controlled flow of dust to the charging stage.',
     },
     {
       name: 'Ada Batu Yıldırım',
-      role: 'Simulation & electronics',
-      bio: 'Placeholder: what Ada works on at DUSTRA, in one sentence.',
+      role: 'Electronics & Simulation',
+      bio: 'Develops the high-voltage electronics and control that power the charging and acceleration stages.',
     },
     {
       name: 'Marie Frühauf',
-      role: 'Structures & test safety',
-      bio: 'Placeholder: what Marie works on at DUSTRA, in one sentence.',
+      role: 'Particle charging',
+      bio: 'Works on contact charging: how grains pick up charge at the electrode surface, and how to make it reliable.',
     },
     {
       name: 'Loïc Cabon',
-      role: 'Machine learning',
-      bio: 'Placeholder: what Loïc works on at DUSTRA, in one sentence.',
+      role: 'Machine Learning',
+      bio: 'Builds machine-learning models that speed up particle simulations and help us explore designs faster.',
     },
     {
       name: 'Saskia Tristani',
-      role: 'Mechanical design',
-      bio: 'Placeholder: what Saskia works on at DUSTRA, in one sentence.',
+      role: 'Acceleration',
+      bio: 'Designs the electrostatic accelerator and simulates its fields and particle trajectories to shape the first prototype.',
     },
   ],
 }
