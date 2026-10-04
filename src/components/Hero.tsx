@@ -41,12 +41,12 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Bottom rail: scroll cue and the three principles, resting on the horizon */}
+        {/* Bottom rail: scroll cue left, principles centred, lockup right */}
         <Reveal delay={180} className="mx-auto mt-16 w-full max-w-6xl pb-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col items-start gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-end">
             <a
               href="#why"
-              className="label text-stone hover:text-ink order-2 hidden items-center gap-2.5 transition-colors md:order-1 md:flex"
+              className="label text-stone hover:text-ink hidden items-center gap-2.5 justify-self-start transition-colors lg:flex"
             >
               <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
                 <path d="M8 2v11M4 9.5 8 13.5 12 9.5" />
@@ -54,26 +54,24 @@ export default function Hero() {
               Scroll to learn more
             </a>
 
-            <div className="order-1 flex flex-col items-start gap-6 md:order-2 lg:flex-row lg:items-end">
-              <dl className="bg-paper/75 grid gap-x-10 gap-y-3 rounded-2xl border border-[color:var(--color-rule)] px-6 py-5 backdrop-blur-md sm:grid-cols-[repeat(3,auto)]">
-                {hero.principles.map((p) => (
-                  <div key={p.value} className="flex flex-col-reverse">
-                    <dt className="text-stone mt-1 text-[14px] leading-snug sm:whitespace-nowrap">{p.label}</dt>
-                    <dd className="font-display text-charcoal text-lg leading-tight">{p.value}</dd>
-                  </div>
-                ))}
-              </dl>
+            <dl className="bg-paper/75 grid gap-x-10 gap-y-3 rounded-2xl border border-[color:var(--color-rule)] px-6 py-5 backdrop-blur-md sm:grid-cols-[repeat(3,auto)] lg:justify-self-center">
+              {hero.principles.map((p) => (
+                <div key={p.value} className="flex flex-col-reverse">
+                  <dt className="text-stone mt-1 text-[14px] leading-snug sm:whitespace-nowrap">{p.label}</dt>
+                  <dd className="font-display text-charcoal text-lg leading-tight">{p.value}</dd>
+                </div>
+              ))}
+            </dl>
 
-              <a
-                href={challenge.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-stone hover:text-rust shrink-0 text-[14px] leading-snug transition-colors"
-              >
-                <span className="text-ink block font-medium">ETH Zürich | Space</span>
-                <span className="block">{challenge.name}</span>
-              </a>
-            </div>
+            <a
+              href={challenge.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-stone hover:text-rust shrink-0 text-[14px] leading-snug transition-colors lg:justify-self-end lg:text-right"
+            >
+              <span className="text-ink block font-medium">ETH Zürich | Space</span>
+              <span className="block">{challenge.name}</span>
+            </a>
           </div>
         </Reveal>
       </div>
