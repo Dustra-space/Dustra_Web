@@ -33,11 +33,10 @@ export const hero = {
   title: 'Propellant from space.',
   summary:
     'An electric thruster powered by space dust, letting spacecrafts refuel in space rather than haul every kilogram from Earth.',
-  principles: [
-    { value: 'Local material', label: 'The propellant vision' },
-    { value: 'Electric fields', label: 'The acceleration principle' },
-    { value: 'Lab prototype', label: 'Our next step' },
-  ],
+    selected: {
+    value: 'Top 20 Team',
+    label: 'Selected for the Liftoff Challenge 2026/27',
+  },
 } as const
 
 export const why = {
