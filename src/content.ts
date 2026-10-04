@@ -17,7 +17,7 @@ export const site = {
 
 export const challenge = {
   name: 'Liftoff Challenge 2026/27',
-  status: 'Top 20 teams',
+  status: 'Top 20 Team',
   organisers: 'ETH Zurich | Space',
   url: 'https://www.liftoff-challenge.ch/',
 } as const
@@ -32,7 +32,7 @@ export const hero = {
   eyebrow: 'Electrostatic dust propulsion',
   title: 'Propellant from space.',
   summary:
-    'An electric thruster powered by space dust, letting spacecrafts refuel in space rather than haul every kilogram from Earth.',
+    'An electric thruster powered by space dust, letting spacecrafts refuel in space rather than relying on propellant from Earth.',
     selected: {
     value: 'Top 20 Team',
     label: 'Selected for the Liftoff Challenge 2026/27',
@@ -43,26 +43,22 @@ export const why = {
   eyebrow: 'Why',
   title: 'Every kilogram of propellant starts on Earth.',
   body: [
-    'Propellant adds to the mass that has to be launched and then carried through a mission. For long-distance transport and large cargo, that burden grows quickly.',
-    'If processed material from the Moon or asteroids can serve as reaction mass, spacecraft could replenish along the way instead.',
+    'It has to be launched, then carried for the whole mission. The further you go, the more you need, and the more you carry just to move it.',
+    'Dust covers the Moon and many asteroids. A thruster that runs on it turns another world into a fuel depot.',
   ],
 } as const
 
 export const concept = {
   eyebrow: 'Concept',
   title: 'How dust becomes thrust.',
-  body: [
-    'Give a solid particle an electric charge, then accelerate it through an electric field. Ejecting those particles carries momentum away and produces a reaction force.',
-    'We’re investigating contact charging: particles pick up charge when they touch a charged surface. The challenge is turning that into a reliable, continuous flow at a useful scale.',
-  ],
   stages: [
-    { id: '01', title: 'Feed', detail: 'Deliver prepared particles to the charging surface in a controlled flow.' },
-    { id: '02', title: 'Charge', detail: 'Transfer charge through contact with an electrode surface.' },
-    { id: '03', title: 'Accelerate', detail: 'Use electric fields to turn electrical energy into particle motion.' },
+    { id: '01', title: 'Feed', detail: 'A steady, controlled stream of dust.' },
+    { id: '02', title: 'Charge', detail: 'Each grain picks up charge on contact with an electrode.' },
+    { id: '03', title: 'Accelerate', detail: 'Electric fields fire the grains out the back, pushing the spacecraft forward.' },
   ],
   priorArt:
-    'Researchers in Kiel demonstrated contact charging and acceleration with fine electrode structures, and dust accelerators are established tools for impact research. Continuous propulsion at a useful mass flow is the open question DUSTRA is investigating.',
-} as const
+    'The building blocks exist. Researchers at Kiel University have charged and accelerated microparticles by contact [1], and dust accelerators are standard tools in impact research [2, 3]. What’s still open is a continuous stream strong enough to propel a spacecraft. That’s what DUSTRA is working on.',
+  } as const
 
 export const sources = [
   {
@@ -89,25 +85,24 @@ export type Phase = {
   summary: string
 }
 
-export const progress: { eyebrow: string; title: string; intro: string; phases: Phase[] } = {
+export const progress: { eyebrow: string; title: string; phases: Phase[] } = {
   eyebrow: 'Progress',
   title: 'Where we are.',
-  intro: 'Each step is guided by what we learn from the one before it.',
   phases: [
     {
-      window: 'Now',
-      title: 'Design & Simulation',
+      window: 'Autumn 2026',
+      title: 'Design & simulation',
       state: 'active',
-      summary: 'Accelerator designed in CAD, with particle simulations and mission calculations behind it.',
+      summary: 'Designing and simulating the hopper and charger, and preparing the first tests.',
     },
     {
-      window: 'Next',
-      title: 'Laboratory Prototype',
+      window: 'Early 2027',
+      title: 'Laboratory prototype',
       state: 'planned',
-      summary: 'Build it and measure how well charging and acceleration work in practice.',
+      summary: 'Build the accelerator, integrate the full system and take meaningful measurements.',
     },
     {
-      window: 'Later',
+      window: 'Beyond',
       title: 'Scaling',
       state: 'future',
       summary: 'Find out whether it can run continuously and become a real thruster.',
@@ -128,34 +123,32 @@ export type Member = {
 export const team: { eyebrow: string; title: string; blurb: string; members: Member[] } = {
   eyebrow: 'Team',
   title: 'The people behind DUSTRA.',
-  blurb:
-    'Five mechanical engineering students at ETH Zurich, covering simulation, structures, electronics, machine learning, and mechanical design.',
-  // TODO: replace each placeholder with one sentence on what this person does on DUSTRA.
+  blurb: 'Five mechanical engineering students at ETH Zurich.',
   members: [
     {
       name: 'Lennart Gröger',
-      role: 'Particle Feed',
-      bio: 'Designs the hopper and feed system that delivers a steady, controlled flow of dust to the charging stage.',
+      role: 'Particle feed',
+      bio: 'Designs the hopper and feed that deliver a steady stream of dust.',
     },
     {
       name: 'Ada Batu Yıldırım',
-      role: 'Electronics & Simulation',
-      bio: 'Develops the high-voltage electronics and control that power the charging and acceleration stages.',
+      role: 'Electronics',
+      bio: 'Develops the high-voltage electronics that power charging and acceleration.',
     },
     {
       name: 'Marie Frühauf',
       role: 'Particle charging',
-      bio: 'Works on contact charging: how grains pick up charge at the electrode surface, and how to make it reliable.',
+      bio: 'Studies how grains pick up charge on contact, and how to make it reliable.',
     },
     {
       name: 'Loïc Cabon',
-      role: 'Machine Learning',
-      bio: 'Builds machine-learning models that speed up particle simulations and help us explore designs faster.',
+      role: 'Machine learning',
+      bio: 'Builds models that speed up particle simulations and design work.',
     },
     {
       name: 'Saskia Tristani',
       role: 'Acceleration',
-      bio: 'Designs the electrostatic accelerator and simulates its fields and particle trajectories to shape the first prototype.',
+      bio: 'Designs the accelerator and simulates its fields and particle trajectories.',
     },
   ],
 }

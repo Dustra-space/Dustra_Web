@@ -16,7 +16,6 @@ export default function Progress() {
       tone="paper"
       eyebrow={progress.eyebrow}
       title={progress.title}
-      intro={<p>{progress.intro}</p>}
     >
       <div className="relative">
         {/* The timeline: vertical on phones, horizontal on wide screens */}

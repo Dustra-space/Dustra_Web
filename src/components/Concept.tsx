@@ -4,8 +4,46 @@ import Accelerator from './Accelerator'
 import Reveal from './Reveal'
 import Section from './Section'
 
+/**
+ * Turns "[1]" or "[2, 3]" in a sentence into small superscript links that
+ * scroll to the matching entry in the sources list below.
+ */
+function withCitations(text: string, cite: (n: number) => void) {
+  const parts = text.split(/\[([\d,\s]+)\]/)
+  return parts.map((part, i) => {
+    if (i % 2 === 0) {
+      // Drop the space before a marker so it sits right against the word
+      return i < parts.length - 1 ? part.replace(/\s+$/, '') : part
+    }
+    const numbers = part.split(',').map((n) => Number(n.trim()))
+    return (
+      <sup key={i} className="ml-px text-[0.7em] font-medium">
+        {numbers.map((n, j) => (
+          <span key={n}>
+            {j > 0 && ','}
+            <a
+              href={`#source-${n}`}
+              onClick={(e) => {
+                e.preventDefault()
+                cite(n)
+              }}
+              className="text-rust hover:underline"
+              aria-label={`Source ${n}`}
+            >
+              {n}
+            </a>
+          </span>
+        ))}
+      </sup>
+    )
+  })
+}
+
 export default function Concept() {
   const [active, setActive] = useState<number | null>(null)
+
+  const cite = (n: number) =>
+    document.getElementById(`source-${n}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
   return (
     <Section
@@ -13,7 +51,6 @@ export default function Concept() {
       tone="dust"
       eyebrow={concept.eyebrow}
       title={concept.title}
-      intro={concept.body.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
     >
       <Reveal className="bg-paper rounded-2xl p-4 md:p-8">
         <div className="label text-stone mb-4 flex justify-between gap-4">
@@ -52,33 +89,27 @@ export default function Concept() {
 
       <Reveal className="mt-10">
         <p className="label text-ink">Research background</p>
-        <p className="text-stone mt-3 text-[15px] leading-relaxed">{concept.priorArt}</p>
+        <p className="text-stone mt-3 text-[15px] leading-relaxed">{withCitations(concept.priorArt, cite)}</p>
 
-        <details className="group text-stone mt-5">
-          <summary className="label text-ink flex cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden">
-            <span className="text-rust transition-transform group-open:rotate-90" aria-hidden="true">›</span>
-            Sources ({sources.length})
-          </summary>
-          <ol className="mt-4 space-y-3 text-[14px] leading-relaxed">
-            {sources.map((s) => (
-              <li key={s.n} className="flex gap-3">
-                <span className="label text-stone pt-0.5">[{s.n}]</span>
-                {s.href ? (
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-rust underline decoration-[color:var(--color-rule)] underline-offset-4"
-                  >
-                    {s.text}
-                  </a>
-                ) : (
-                  <span>{s.text}</span>
-                )}
-              </li>
-            ))}
-          </ol>
-        </details>
+        <ol className="text-stone mt-5 space-y-2 text-[13px] leading-relaxed">
+          {sources.map((s) => (
+            <li key={s.n} id={`source-${s.n}`} className="flex gap-2">
+              <span className="text-rust w-3 shrink-0 font-medium">{s.n}</span>
+              {s.href ? (
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-rust underline decoration-[color:var(--color-rule)] underline-offset-4"
+                >
+                  {s.text}
+                </a>
+              ) : (
+                <span>{s.text}</span>
+              )}
+            </li>
+          ))}
+        </ol>
       </Reveal>
     </Section>
   )

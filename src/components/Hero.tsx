@@ -44,29 +44,17 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Bottom rail: selection centred, organiser lockup right */}
-        <Reveal delay={180} className="mx-auto mt-16 w-full max-w-6xl pb-8">
-          <div className="flex flex-col items-start gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-end">
-            <a
-              href={challenge.url}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-paper/75 hover:border-rust/40 flex flex-col rounded-2xl border border-[color:var(--color-rule)] px-6 py-4 backdrop-blur-md transition-colors lg:col-start-2"
-            >
-              <span className="font-display text-charcoal text-lg leading-tight">{hero.selected.value}</span>
-              <span className="text-stone mt-1 text-[14px] leading-snug">{hero.selected.label}</span>
-            </a>
-
-            <a
-              href={challenge.url}
-              target="_blank"
-              rel="noreferrer"
-              className="text-stone hover:text-rust shrink-0 text-[14px] leading-snug transition-colors lg:justify-self-end lg:text-right"
-            >
-              <span className="text-ink block font-medium">ETH Zürich | Space</span>
-              <span className="block">{challenge.name}</span>
-            </a>
-          </div>
+        {/* Bottom rail: the Liftoff selection, in a box, centred */}
+        <Reveal delay={180} className="mx-auto mt-16 flex w-full max-w-6xl justify-center pb-8">
+          <a
+            href={challenge.url}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-paper/75 hover:border-rust/40 flex flex-col items-center rounded-2xl border border-[color:var(--color-rule)] px-7 py-4 text-center backdrop-blur-md transition-colors"
+          >
+            <span className="font-display text-charcoal text-lg leading-tight">Selected for the {challenge.name}</span>
+            <span className="text-stone mt-1 text-[14px] leading-snug">ETH Zürich | Space</span>
+          </a>
         </Reveal>
       </div>
     </section>
