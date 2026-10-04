@@ -1,6 +1,7 @@
-import { challenge, hero } from '../content'
+import { challenge, hero, site } from '../content'
 import DustField from './DustField'
 import HeroArt from './HeroArt'
+import Moon from './Moon'
 import Reveal from './Reveal'
 import { Streak } from './Section'
 
@@ -10,20 +11,20 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-1/2 bottom-0 md:top-0">
         <HeroArt />
       </div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 hidden px-8 md:block" aria-hidden="true">
+        <div className="relative mx-auto max-w-6xl">
+          <Moon className="absolute top-28 right-0 w-[clamp(220px,25vw,360px)] lg:top-32" />
+        </div>
+      </div>
       <DustField />
 
       <div className="relative flex min-h-[640px] flex-col px-5 pt-14 md:min-h-[820px] md:px-8">
         <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center">
           <Reveal>
-            <a
-              href={challenge.url}
-              target="_blank"
-              rel="noreferrer"
-              className="label text-rust hover:text-rust-deep inline-flex items-center gap-3 transition-colors"
-            >
+            <p className="label text-rust inline-flex items-center gap-3">
               <Streak className="text-rust" />
-              {challenge.name} · {challenge.status}
-            </a>
+              {site.field}
+            </p>
           </Reveal>
 
           <Reveal delay={60}>
