@@ -23,11 +23,19 @@ npm run typecheck
 
 | Path | Purpose |
 | --- | --- |
-| `src/content.ts` | Central site copy, project direction, status, research background, and roadmap. |
-| `src/components/Section.tsx` | Section shell: gutter label, two-tone heading, light/band/dark tone. |
-| `src/components/Accelerator.tsx` | Animated conceptual illustration of feeding, charging, acceleration, and measurement. |
-| `src/components/DustField.tsx` | Canvas dust field behind the hero. |
-| `src/index.css` | Design tokens, type scale, button and label styles, keyframes. |
+| `src/content.ts` | All site copy: hero, why, concept, sources, progress, team, contact. |
+| `src/components/Section.tsx` | Section shell: streak eyebrow, display heading, paper/dust/void tone. |
+| `src/components/HeroArt.tsx` | Static hero background: planetary horizon with a soft rust atmosphere. |
+| `src/components/DustField.tsx` | Canvas of drifting dust in the hero; some grains streak past with a rust trail. |
+| `src/components/Accelerator.tsx` | Animated conceptual diagram of feed, charge, accelerate, measure. |
+| `src/components/Logo.tsx`, `logoPaths.ts` | The logo, with the wordmark outlined so it never depends on the font. |
+| `src/index.css` | Self-hosted fonts, colour and type tokens, buttons, labels, keyframes. |
+| `public/og.png` | Link-preview image (1200×630) used by LinkedIn, Slack and messengers. |
+
+### Team photos
+
+Put square-ish photos in `public/team/` and set `photo: 'team/<name>.jpg'` on the member
+in `src/content.ts`. Initials show until a photo is set. `linkedin` is optional.
 
 ## Public claims
 
@@ -35,13 +43,15 @@ The page separates the long-term local-propellant vision from DUSTRA’s current
 
 ## Design notes
 
-The visual language follows the Liftoff Challenge site: white and `#f3f3f3` sections alternating
-with full-black bands, coral `#ff5841` as the only accent, small uppercase micro-type for labels,
-and two-tone headings where the second line is set in grey.
+The identity comes from the DUSTRA logo. Rust `#7A2500` is the brand colour and the logo's
+charcoal `#36363C` carries the wordmark. Ember `#FF2100` is reserved for "charged" moments:
+focus rings. The page alternates warm
+paper and light grey sections and ends on a rust contact band.
 
-Liftoff sets its type in Overused Grotesk, which is not redistributable via npm.
-[Inter Tight](https://fonts.google.com/specimen/Inter+Tight) is used instead — the closest open
-substitute at the same weights and tracking — and is self-hosted, so the site needs no network
-access at runtime.
+Type: Hubballi (the logo face) for display, IBM Plex Sans for reading, IBM Plex Mono for labels
+and annotations. All three are OFL-licensed and self-hosted in `src/assets/fonts`, so the site
+makes no third-party requests (no Google Fonts, which also matters for Swiss/EU privacy rules).
 
-All animation is gated behind `prefers-reduced-motion`.
+The eyebrow mark (three dots and a streak) is the particle trail from the logo's D.
+
+All animation respects `prefers-reduced-motion`, and content stays visible without JavaScript.

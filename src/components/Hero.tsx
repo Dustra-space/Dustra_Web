@@ -1,94 +1,78 @@
-import { challenge, heroPrinciples, project } from '../content'
+import { challenge, hero } from '../content'
 import DustField from './DustField'
+import HeroArt from './HeroArt'
 import Reveal from './Reveal'
 
 export default function Hero() {
   return (
-    <section id="top" className="relative flex min-h-svh flex-col overflow-hidden bg-[#060708]">
-      {/* Planet limb, standing in for the Liftoff hero photograph */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[95vh] -left-[10vw] h-[170vh] w-[170vh] rounded-full"
-        style={{
-          background: 'radial-gradient(circle at 34% 22%, #23344a 0%, #131c28 45%, #080c11 72%)',
-          boxShadow:
-            '0 0 90px 6px rgba(120, 175, 255, 0.16), inset 0 6px 60px rgba(150, 205, 255, 0.18)',
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(120% 80% at 78% 12%, rgba(255,88,65,0.14), transparent 60%)',
-        }}
-      />
-
+    <section id="top" className="bg-paper relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 bottom-0 md:top-0">
+        <HeroArt />
+      </div>
       <DustField />
 
-      <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-center px-6 pt-32 pb-10">
-        <Reveal>
-          <span className="bg-coral label inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-white">
-            {challenge.status}
-          </span>
-        </Reveal>
-
-        <Reveal delay={70}>
-          <h1 className="h-hero mt-7 max-w-5xl text-white">
-            Propellant from space.
-            <br />
-            <span className="text-grey-dark">For the journey ahead.</span>
-          </h1>
-        </Reveal>
-
-        <Reveal delay={140}>
-          <p className="text-chalk/70 mt-8 max-w-xl text-[17px] leading-relaxed">
-            {project.summary}
-          </p>
-        </Reveal>
-
-        <Reveal delay={210}>
-          <div className="mt-9 flex flex-wrap items-center gap-2.5">
-            <a href="#how" className="btn btn-coral">
-              Explore the concept
-            </a>
-            <a href="#building" className="btn btn-ghost-dark">
-              What we’re building
-            </a>
-          </div>
-        </Reveal>
-      </div>
-
-      {/* Bottom rail — principles, scroll cue and the institutional lockup */}
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-8">
-        <Reveal delay={280}>
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div className="relative flex min-h-[640px] flex-col px-5 pt-14 md:min-h-[820px] md:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center">
+          <Reveal>
             <a
-              href="#market"
-              className="label text-chalk/55 hover:text-chalk order-2 flex items-center gap-2.5 transition-colors lg:order-1"
+              href={challenge.url}
+              target="_blank"
+              rel="noreferrer"
+              className="label bg-rust text-paper hover:bg-rust-deep inline-flex items-center gap-2 rounded-full px-3.5 py-2 transition-colors"
             >
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.4">
+              {challenge.name} · {challenge.status}
+            </a>
+          </Reveal>
+
+          <Reveal delay={60}>
+            <h1 className="h-hero text-charcoal mt-8 max-w-[11ch]">{hero.title}</h1>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <p className="text-stone mt-8 max-w-[34rem] text-lg leading-relaxed">{hero.summary}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#concept" className="btn btn-rust">
+                How it works
+              </a>
+              <a href="#contact" className="btn btn-line bg-paper/70">
+                Work with us
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Bottom rail: scroll cue and the three principles, resting on the horizon */}
+        <Reveal delay={180} className="mx-auto mt-16 w-full max-w-6xl pb-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <a
+              href="#why"
+              className="label text-stone hover:text-ink order-2 hidden items-center gap-2.5 transition-colors md:order-1 md:flex"
+            >
+              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
                 <path d="M8 2v11M4 9.5 8 13.5 12 9.5" />
               </svg>
               Scroll to learn more
             </a>
 
-            <div className="order-1 flex flex-col items-start gap-6 lg:order-2 lg:flex-row lg:items-end">
-              <dl className="grid grid-cols-1 gap-x-8 gap-y-5 rounded-lg bg-white/[0.07] px-6 py-5 backdrop-blur-md sm:grid-cols-3">
-                {heroPrinciples.map((f) => (
-                  <div key={f.label}>
-                    <dd className="flex items-baseline gap-1 text-white">
-                      <span className="text-lg font-medium tracking-[-0.03em]">{f.value}</span>
-                    </dd>
-                    <dt className="text-chalk/55 mt-1 text-[13px] leading-tight">{f.label}</dt>
+            <div className="order-1 flex flex-col items-start gap-6 md:order-2 lg:flex-row lg:items-end">
+              <dl className="bg-paper/75 grid gap-x-10 gap-y-3 rounded-2xl border border-[color:var(--color-rule)] px-6 py-5 backdrop-blur-md sm:grid-cols-[repeat(3,auto)]">
+                {hero.principles.map((p) => (
+                  <div key={p.value} className="flex flex-col-reverse">
+                    <dt className="text-stone mt-1 text-[14px] leading-snug sm:whitespace-nowrap">{p.label}</dt>
+                    <dd className="font-display text-charcoal text-lg leading-tight">{p.value}</dd>
                   </div>
                 ))}
               </dl>
 
-              <div className="text-chalk/55 shrink-0 text-[13px] leading-snug">
-                <p className="text-chalk font-medium">ETH Zürich | Space</p>
-                <p>Liftoff Challenge 2026/27</p>
-              </div>
+              <a
+                href={challenge.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-stone hover:text-rust shrink-0 text-[14px] leading-snug transition-colors"
+              >
+                <span className="text-ink block font-medium">ETH Zürich | Space</span>
+                <span className="block">{challenge.name}</span>
+              </a>
             </div>
           </div>
         </Reveal>

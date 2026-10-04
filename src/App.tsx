@@ -1,12 +1,10 @@
+import Concept from './components/Concept'
 import Contact from './components/Contact'
 import Hero from './components/Hero'
 import Nav from './components/Nav'
-import Problem from './components/Problem'
-import Roadmap from './components/Roadmap'
-import Solution from './components/Solution'
-import Status from './components/Status'
+import Progress from './components/Progress'
 import Team from './components/Team'
-import Vision from './components/Vision'
+import Why from './components/Why'
 
 export default function App() {
   return (
@@ -14,11 +12,9 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Problem />
-        <Solution />
-        <Status />
-        <Vision />
-        <Roadmap />
+        <Why />
+        <Concept />
+        <Progress />
         <Team />
       </main>
       <Contact />

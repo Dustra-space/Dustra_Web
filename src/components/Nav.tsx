@@ -3,11 +3,11 @@ import { nav } from '../content'
 import Logo from './Logo'
 
 export default function Nav() {
-  const [solid, setSolid] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > window.innerHeight - 120)
+    const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -15,77 +15,56 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        solid ? 'bg-paper/92 border-b border-[color:var(--color-rule)] backdrop-blur-xl' : ''
+      className={`bg-paper/90 sticky top-0 z-50 backdrop-blur-lg transition-shadow duration-300 ${
+        scrolled ? 'shadow-[0_1px_0_var(--color-rule)]' : ''
       }`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-4">
-        <a
-          href="#top"
-          className={`flex items-center gap-2.5 ${solid ? 'text-ink' : 'text-white'}`}
-        >
-          <Logo className="h-7 w-7" />
-          <span className="text-[19px] font-semibold tracking-[-0.02em]">Dustra</span>
+      <div className="px-5 md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 py-4">
+        <a href="#top" aria-label="DUSTRA, back to top" className="-my-1 py-1">
+          <Logo className="text-charcoal h-6 w-auto md:h-7" />
         </a>
 
-        <nav className="hidden items-center gap-1.5 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`label rounded-md px-3 py-2.5 transition-colors ${
-                solid
-                  ? 'text-ink hover:bg-ink/[0.06]'
-                  : 'bg-white/10 text-white hover:bg-white/20'
-              }`}
-            >
+            <a key={item.href} href={item.href} className="label text-stone hover:text-ink transition-colors">
               {item.label}
             </a>
           ))}
+          <a href="#contact" className="btn btn-rust py-2.5">
+            Contact
+          </a>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <a href="#contact" className="btn btn-coral hidden sm:inline-flex">
-            Get in touch
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className={`rounded-md p-2 lg:hidden ${solid ? 'text-ink' : 'text-white'}`}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-          >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6">
-              {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 8h16M4 16h16" />}
-            </svg>
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="text-ink -mr-2 rounded-md p-2 md:hidden"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6">
+            {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 8h16M4 16h16" />}
+          </svg>
+        </button>
+      </div>
       </div>
 
       {open && (
-        <nav className="bg-paper border-t border-[color:var(--color-rule)] px-6 py-3 lg:hidden">
+        <nav id="mobile-menu" aria-label="Main" className="border-t border-[color:var(--color-rule)] px-5 pb-4 md:hidden">
           <ul className="flex flex-col">
-            {nav.map((item) => (
+            {[...nav, { href: '#contact', label: 'Contact' }].map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="label text-ink block py-3"
+                  className="label text-ink block border-b border-[color:var(--color-rule)] py-4"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="label text-coral block py-3"
-              >
-                Get in touch
-              </a>
-            </li>
           </ul>
         </nav>
       )}

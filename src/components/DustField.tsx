@@ -12,8 +12,9 @@ type Grain = {
 const GRAIN_COUNT = 150
 
 /**
- * Slow-drifting field of dust grains behind the hero.
- * A minority are "charged" and stream faster with a short trail.
+ * Slow-drifting field of dust grains behind the hero, carried over from the
+ * original site in the DUSTRA palette. A minority are "charged" and stream
+ * faster with a short rust trail.
  */
 export default function DustField() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -67,8 +68,8 @@ export default function DustField() {
         if (g.charged) {
           const trail = 6 + g.z * 26
           const gradient = ctx.createLinearGradient(g.x - trail, g.y, g.x, g.y)
-          gradient.addColorStop(0, 'rgba(255, 88, 65, 0)')
-          gradient.addColorStop(1, `rgba(255, 120, 90, ${alpha})`)
+          gradient.addColorStop(0, 'rgba(122, 37, 0, 0)')
+          gradient.addColorStop(1, `rgba(122, 37, 0, ${alpha + 0.15})`)
           ctx.strokeStyle = gradient
           ctx.lineWidth = size
           ctx.beginPath()
@@ -76,12 +77,12 @@ export default function DustField() {
           ctx.lineTo(g.x, g.y)
           ctx.stroke()
 
-          ctx.fillStyle = `rgba(255, 160, 135, ${alpha + 0.2})`
+          ctx.fillStyle = `rgba(122, 37, 0, ${Math.min(1, alpha + 0.3)})`
           ctx.beginPath()
           ctx.arc(g.x, g.y, size * 0.8, 0, Math.PI * 2)
           ctx.fill()
         } else {
-          ctx.fillStyle = `rgba(210, 220, 240, ${alpha * 0.6})`
+          ctx.fillStyle = `rgba(103, 96, 91, ${alpha * 0.7})`
           ctx.beginPath()
           ctx.arc(g.x, g.y, size * 0.6, 0, Math.PI * 2)
           ctx.fill()

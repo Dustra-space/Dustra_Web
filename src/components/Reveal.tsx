@@ -4,10 +4,13 @@ type Props = {
   children: ReactNode
   delay?: number
   className?: string
-  as?: 'div' | 'li' | 'section'
+  as?: 'div' | 'li'
 }
 
-/** Fades content in the first time it scrolls into view. */
+/**
+ * Fades content in the first time it scrolls into view. Content stays visible
+ * when JavaScript is off: the hidden state only applies under `.js`.
+ */
 export default function Reveal({ children, delay = 0, className = '', as = 'div' }: Props) {
   const ref = useRef<HTMLElement | null>(null)
 
@@ -24,7 +27,7 @@ export default function Reveal({ children, delay = 0, className = '', as = 'div'
           }
         }
       },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.08 },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
     )
 
     observer.observe(el)
@@ -37,7 +40,7 @@ export default function Reveal({ children, delay = 0, className = '', as = 'div'
     <Tag
       ref={ref as React.RefObject<HTMLDivElement>}
       className={`reveal ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </Tag>

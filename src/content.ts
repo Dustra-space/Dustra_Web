@@ -1,142 +1,168 @@
-/** Public copy: project direction and status, with prior art kept separate. */
+/**
+ * All public copy lives here.
+ *
+ * Rule for this file: keep the long-term vision separate from what DUSTRA has
+ * done so far, credit prior results to the researchers who published them,
+ * and do not add unmeasured performance figures or flight dates.
+ */
 
-export const project = {
-  name: 'Dustra',
-  tagline: 'Dust to Thrust',
-  summary:
-    'We’re exploring how processed dust from the Moon or asteroids could become propellant — charged and accelerated electrically, so spacecraft could replenish using material already in space.',
-  thematicArea: 'Electrostatic dust propulsion',
+export const site = {
+  name: 'DUSTRA',
+  field: 'Electrostatic dust propulsion',
   institution: 'ETH Zurich',
+  email: 'contact@dustra.space',
+  contactPerson: 'Lennart Gröger',
+  contactRole: 'Project lead',
 } as const
 
 export const challenge = {
-  name: 'ETH Zurich | Space — Liftoff Challenge 2026/27',
-  status: 'Liftoff Challenge · Top 20',
+  name: 'Liftoff Challenge 2026/27',
+  status: 'Top 20 teams',
   organisers: 'ETH Zurich | Space',
   url: 'https://www.liftoff-challenge.ch/',
 } as const
 
-export const heroPrinciples = [
-  { value: 'Local material', label: 'The propellant vision' },
-  { value: 'Electric fields', label: 'The acceleration principle' },
-  { value: 'Lab prototype', label: 'Our next step' },
+export const nav = [
+  { href: '#concept', label: 'Concept' },
+  { href: '#progress', label: 'Progress' },
+  { href: '#team', label: 'Team' },
 ] as const
 
-export const headings = {
-  problem: { label: 'The ambition', lead: 'Go further.', trail: 'Carry less from Earth.' },
-  solution: { label: 'The concept', lead: 'Dust to thrust.', trail: 'Powered by electric fields.' },
-  vision: { label: 'The possibilities', lead: 'A different source of propellant.', trail: 'New possibilities for transport.' },
-  status: { label: 'Building now', lead: 'A space ambition.', trail: 'A laboratory starting point.' },
-  roadmap: { label: 'Our path', lead: 'Understand. Test. Scale.', trail: 'One step at a time.' },
-  team: { label: 'Team', lead: 'Five engineers.', trail: 'One shared ambition.' },
-  contact: { label: 'Get in touch', lead: 'Help us take', trail: 'the next step.' },
+export const hero = {
+  eyebrow: 'Electrostatic dust propulsion',
+  title: 'Propellant from space.',
+  summary:
+    'We’re working toward an electric thruster that runs on processed lunar or asteroid dust, so spacecraft could refuel with material that is already in space instead of carrying it all from Earth.',
+  principles: [
+    { value: 'Local material', label: 'The propellant vision' },
+    { value: 'Electric fields', label: 'The acceleration principle' },
+    { value: 'Lab prototype', label: 'Our next step' },
+  ],
 } as const
 
-export const problem = {
+export const why = {
+  eyebrow: 'Why',
+  title: 'Every kilogram of propellant starts on Earth.',
   body: [
-    'For long-distance space transport, propellant adds to the mass that must be launched from Earth and carried through a mission. Moving large amounts of cargo makes that burden especially important.',
-    'DUSTRA’s vision is to change where the propellant comes from. If processed material from the Moon or asteroids can be used as reaction mass, spacecraft could replenish along the way instead of launching their entire supply from Earth.',
-  ],
-  stats: [
-    { value: 'Source', label: 'Material already in space', foot: 'Moon · Asteroids' },
-    { value: 'Prepare', label: 'Dust suitable for charging', foot: 'Processed feedstock' },
-    { value: 'Replenish', label: 'Propellant for the onward journey', foot: 'Our long-term vision' },
+    'Propellant adds to the mass that has to be launched and then carried through a mission. For long-distance transport and large cargo, that burden grows quickly.',
+    'If processed material from the Moon or asteroids can serve as reaction mass, spacecraft could replenish along the way instead.',
   ],
 } as const
 
-export const solution = {
+export const concept = {
+  eyebrow: 'Concept',
+  title: 'How dust becomes thrust.',
   body: [
     'Give a solid particle an electric charge, then accelerate it through an electric field. Ejecting those particles carries momentum away and produces a reaction force.',
-    'We’re investigating contact charging: particles acquire charge when they touch a charged surface. The challenge is turning that process into a reliable, continuous flow at a useful scale.',
+    'We’re investigating contact charging: particles pick up charge when they touch a charged surface. The challenge is turning that into a reliable, continuous flow at a useful scale.',
   ],
-  priorArt:
-    'Kiel researchers demonstrated contact charging and acceleration using fine electrode structures. Established dust accelerators also support impact research. These results provide a starting point; continuous propulsion at useful mass flow remains the challenge DUSTRA aims to investigate.',
   stages: [
     { id: '01', title: 'Feed', detail: 'Deliver prepared particles to the charging surface in a controlled flow.' },
     { id: '02', title: 'Charge', detail: 'Transfer charge through contact with an electrode surface.' },
     { id: '03', title: 'Accelerate', detail: 'Use electric fields to turn electrical energy into particle motion.' },
-    { id: '04', title: 'Measure', detail: 'Measure particle flow, speed, and delivered momentum to understand what works.' },
   ],
+  priorArt:
+    'Researchers in Kiel demonstrated contact charging and acceleration with fine electrode structures, and dust accelerators are established tools for impact research. Continuous propulsion at a useful mass flow is the open question DUSTRA is investigating.',
 } as const
-
-export const status = {
-  done: [
-    'An initial accelerator design in CAD.',
-    'Particle simulations to explore charging and trajectories.',
-    'Mission calculations to examine the transport concept.',
-  ],
-  next:
-    'Our next step is a laboratory prototype. We’ll test particle feeding, contact charging, and acceleration, then measure the resulting flow and momentum to find out whether the approach can scale.',
-  priorities: [
-    'Consistent particle feeding',
-    'Reliable contact charging',
-    'Controlled particle acceleration',
-    'Flow, speed, and momentum measurements',
-  ],
-} as const
-
-export const applications = [
-  {
-    horizon: 'Space transport',
-    note: 'The long-term ambition',
-    body: 'Move cargo over long distances with propulsion that could use material sourced beyond Earth.',
-    items: ['Lunar and interplanetary logistics', 'Propellant replenishment in space'],
-  },
-  {
-    horizon: 'Local resources',
-    note: 'The material opportunity',
-    body: 'Explore processed lunar or asteroid material as a supply of solid-particle propellant.',
-    items: ['Prepared dust as reaction mass', 'A link between resources and transport'],
-  },
-  {
-    horizon: 'Particle research',
-    note: 'A nearer-term possibility',
-    body: 'The same charging and acceleration methods could support experiments with dust on Earth.',
-    items: ['Particle sources and diagnostics', 'Dust-impact and materials research'],
-  },
-] as const
-
-export const roadmap = [
-  {
-    n: 1, window: 'Now', title: 'Design & simulation', state: 'active',
-    summary: 'Develop the concept and identify the questions the first experiment needs to answer.',
-    goals: ['Explore charging and particle motion', 'Refine the prototype design'],
-  },
-  {
-    n: 2, window: 'Next', title: 'Laboratory validation', state: 'planned',
-    summary: 'Build a prototype and compare its behaviour with our calculations.',
-    goals: ['Test feeding, charging, and acceleration', 'Measure flow, speed, and momentum'],
-  },
-  {
-    n: 3, window: 'Longer term', title: 'Explore scaling', state: 'future',
-    summary: 'Use the experimental results to assess a path toward useful continuous operation and space applications.',
-    goals: ['Investigate sustained particle flow', 'Assess prepared feedstocks and propulsion potential'],
-  },
-] as const
-
-export const team = {
-  blurb: 'An ETH Zurich team with a background in mechanical engineering, bringing together simulation, structures, electronics, experimental work, and CAD.',
-  members: [
-    { name: 'Ada Batu Yıldırım', focus: 'CFD & simulation', skills: ['CFD for rocketry', 'Electronics', 'Physics simulation', 'Embedded systems', 'Management'] },
-    { name: 'Marie Frühauf', focus: 'Structures & test safety', skills: ['Structures & FEA', 'MRL drone focus project', 'Safe testing', 'Sponsoring'] },
-    { name: 'Loïc Cabon', focus: 'Machine learning', skills: ['Machine learning', 'Physics domain approximations'] },
-    { name: 'Lennart Gröger', focus: 'Project lead', skills: ['Structures & FEA for UUVs', 'Project management', 'Experimental setups'] },
-    { name: 'Saskia Tristani', focus: 'CAD', skills: ['CAD'] },
-  ],
-} as const
-
-export const contact = { person: 'Lennart Gröger', role: 'Contact person', email: 'contact@dustra.space' } as const
 
 export const sources = [
-  { n: 1, text: 'T. Trottenberg, V. Schneider & H. Kersten. Research toward an Electrostatic Microparticle Thruster based on Contact Charging. IEPC-2011-231 (2011).', href: null },
-  { n: 2, text: 'A. Mocker et al. A 2 MV Van de Graaff accelerator as a tool for planetary and impact physics research. Review of Scientific Instruments (2011).', href: 'https://doi.org/10.1063/1.3637461' },
-  { n: 3, text: 'Y. Li et al. Upgrades of a Small Electrostatic Dust Accelerator at the University of Stuttgart. Applied Sciences (2023).', href: 'https://doi.org/10.3390/app13074441' },
+  {
+    n: 1,
+    text: 'T. Trottenberg, V. Schneider & H. Kersten. Research toward an Electrostatic Microparticle Thruster based on Contact Charging. IEPC-2011-231 (2011).',
+    href: null,
+  },
+  {
+    n: 2,
+    text: 'A. Mocker et al. A 2 MV Van de Graaff accelerator as a tool for planetary and impact physics research. Review of Scientific Instruments (2011).',
+    href: 'https://doi.org/10.1063/1.3637461',
+  },
+  {
+    n: 3,
+    text: 'Y. Li et al. Upgrades of a Small Electrostatic Dust Accelerator at the University of Stuttgart. Applied Sciences (2023).',
+    href: 'https://doi.org/10.3390/app13074441',
+  },
 ] as const
 
-export const nav = [
-  { href: '#how', label: 'Concept' },
-  { href: '#building', label: 'Building now' },
-  { href: '#applications', label: 'Vision' },
-  { href: '#roadmap', label: 'Our path' },
-  { href: '#team', label: 'Team' },
-] as const
+export type Phase = {
+  window: string
+  title: string
+  state: 'active' | 'planned' | 'future'
+  summary: string
+}
+
+export const progress: { eyebrow: string; title: string; intro: string; phases: Phase[] } = {
+  eyebrow: 'Progress',
+  title: 'Where we are.',
+  intro: 'Each step is guided by what we learn from the one before it.',
+  phases: [
+    {
+      window: 'Now',
+      title: 'Design & simulation',
+      state: 'active',
+      summary: 'Accelerator designed in CAD, with particle simulations and mission calculations behind it.',
+    },
+    {
+      window: 'Next',
+      title: 'Laboratory prototype',
+      state: 'planned',
+      summary: 'Build it and measure how well charging and acceleration work in practice.',
+    },
+    {
+      window: 'Later',
+      title: 'Scaling',
+      state: 'future',
+      summary: 'Find out whether it can run continuously and become a real thruster.',
+    },
+  ],
+}
+
+export type Member = {
+  name: string
+  role: string
+  /** One sentence on what this person does on DUSTRA (current work, not past projects). */
+  bio: string
+  /** Path to a square photo in /public, e.g. 'team/lennart.jpg'. Initials show until set. */
+  photo?: string
+  linkedin?: string
+}
+
+export const team: { eyebrow: string; title: string; blurb: string; members: Member[] } = {
+  eyebrow: 'Team',
+  title: 'The people behind DUSTRA.',
+  blurb:
+    'Five mechanical engineering students at ETH Zurich, covering simulation, structures, electronics, machine learning, and mechanical design.',
+  // TODO: replace each placeholder with one sentence on what this person does on DUSTRA.
+  members: [
+    {
+      name: 'Lennart Gröger',
+      role: 'Project lead',
+      bio: 'Placeholder: what Lennart works on at DUSTRA, in one sentence.',
+    },
+    {
+      name: 'Ada Batu Yıldırım',
+      role: 'Simulation & electronics',
+      bio: 'Placeholder: what Ada works on at DUSTRA, in one sentence.',
+    },
+    {
+      name: 'Marie Frühauf',
+      role: 'Structures & test safety',
+      bio: 'Placeholder: what Marie works on at DUSTRA, in one sentence.',
+    },
+    {
+      name: 'Loïc Cabon',
+      role: 'Machine learning',
+      bio: 'Placeholder: what Loïc works on at DUSTRA, in one sentence.',
+    },
+    {
+      name: 'Saskia Tristani',
+      role: 'Mechanical design',
+      bio: 'Placeholder: what Saskia works on at DUSTRA, in one sentence.',
+    },
+  ],
+}
+
+export const contact = {
+  eyebrow: 'Contact',
+  title: 'Work with us.',
+  ask: 'We’re looking for high-voltage and materials expertise, access to test facilities, and partners and sponsors interested in particle charging and space propulsion.',
+} as const

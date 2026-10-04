@@ -1,86 +1,68 @@
-import { challenge, contact, headings, project, sources } from '../content'
-import ContactForm from './ContactForm'
+import { useState } from 'react'
+import { challenge, contact, site } from '../content'
 import Logo from './Logo'
-import Reveal from './Reveal'
-import { Label } from './Section'
+import { Streak } from './Section'
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(site.email)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // Clipboard can be unavailable; the address stays selectable.
+    }
+  }
+
   return (
-    <footer id="contact" className="bg-black text-chalk px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-6">
-          <Reveal>
-            <Label tone="dark">{headings.contact.label}</Label>
-          </Reveal>
-
-          <Reveal delay={60}>
-            <h2 className="h-section max-w-4xl text-balance">
-              {headings.contact.lead}
-              <br />
-              <span className="text-grey-dark">{headings.contact.trail}</span>
-            </h2>
-            <p className="text-grey-dark mt-8 max-w-2xl">
-              We are looking for high-voltage and materials expertise, test-facility access, and
-              collaborators and sponsors interested in particle charging and space propulsion.
+    <>
+      <section id="contact" className="bg-rust text-moon px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div>
+            <p className="label text-moon/70 flex items-center gap-3">
+              <Streak className="text-moon/70" />
+              {contact.eyebrow}
             </p>
+            <h2 className="h-section mt-5">{contact.title}</h2>
+            <p className="text-moon/80 mt-5 max-w-[56ch]">{contact.ask}</p>
+          </div>
 
-            <p className="text-grey-dark mt-4 text-[13px]">
-              Messages reach {contact.person}, {contact.role.toLowerCase()}.
-            </p>
-
-            <ContactForm />
-          </Reveal>
-        </div>
-
-        <Reveal delay={100} className="mt-24">
-          <p className="label text-grey-dark border-t border-[color:var(--color-rule-dark)] pt-5">
-            Research background
-          </p>
-          <ol className="mt-6 grid gap-4 md:grid-cols-2">
-            {sources.map((s) => (
-              <li key={s.n} id={`reference-${s.n}`} className="text-grey-dark flex gap-3 text-[15px] leading-relaxed">
-                <span className="shrink-0">[{s.n}]</span>
-                {s.href ? (
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-coral underline decoration-[color:var(--color-rule-dark)] underline-offset-4 transition-colors"
-                  >
-                    {s.text}
-                  </a>
-                ) : (
-                  <span>{s.text}</span>
-                )}
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-
-        <div className="mt-20 flex flex-col gap-6 border-t border-[color:var(--color-rule-dark)] pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="text-chalk flex items-center gap-3">
-            <Logo className="h-8 w-8" />
-            <div className="leading-tight">
-              <p className="text-[17px] font-semibold tracking-[-0.02em]">Dustra</p>
-              <p className="text-grey-dark text-[13px]">
-                {project.thematicArea} · {project.institution}
-              </p>
+          <div className="md:text-right">
+            <a
+              href={`mailto:${site.email}`}
+              className="font-display decoration-moon/30 hover:decoration-moon text-3xl [overflow-wrap:anywhere] underline underline-offset-[6px] transition-colors md:text-4xl"
+            >
+              {site.email}
+            </a>
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 md:justify-end">
+              <button
+                type="button"
+                onClick={copy}
+                className="label text-moon border-moon/30 hover:border-moon rounded-full border px-3 py-1.5 transition-colors"
+              >
+                <span aria-live="polite">{copied ? 'Copied' : 'Copy address'}</span>
+              </button>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="text-grey-dark flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px]">
-            <a
-              href={challenge.url}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-chalk transition-colors"
-            >
-              Liftoff Challenge 2026/27
+      <footer className="bg-paper px-5 py-8 md:px-8">
+        <div className="text-stone mx-auto flex max-w-6xl flex-col gap-5 text-[14px] md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-4">
+            <Logo className="text-charcoal h-5 w-auto" />
+            <span>{site.field}</span>
+          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href={challenge.url} target="_blank" rel="noreferrer" className="hover:text-rust transition-colors">
+              {challenge.name} ↗
             </a>
-            <span>{challenge.organisers}</span>
+            <span>© {new Date().getFullYear()} {site.name}</span>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   )
 }
