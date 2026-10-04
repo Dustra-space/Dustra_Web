@@ -32,7 +32,7 @@ export const hero = {
   eyebrow: 'Electrostatic dust propulsion',
   title: 'Propellant from space.',
   summary:
-    'We’re working toward an electric thruster that runs on processed lunar or asteroid dust, so spacecraft could refuel with material that is already in space instead of carrying it all from Earth.',
+    'An electric thruster powered by space dust, letting spacecrafts refuel in space rather than haul every kilogram from Earth.',
   principles: [
     { value: 'Local material', label: 'The propellant vision' },
     { value: 'Electric fields', label: 'The acceleration principle' },
@@ -97,13 +97,13 @@ export const progress: { eyebrow: string; title: string; intro: string; phases: 
   phases: [
     {
       window: 'Now',
-      title: 'Design & simulation',
+      title: 'Design & Simulation',
       state: 'active',
       summary: 'Accelerator designed in CAD, with particle simulations and mission calculations behind it.',
     },
     {
       window: 'Next',
-      title: 'Laboratory prototype',
+      title: 'Laboratory Prototype',
       state: 'planned',
       summary: 'Build it and measure how well charging and acceleration work in practice.',
     },
