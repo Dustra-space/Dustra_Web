@@ -28,7 +28,7 @@ const MUTED = '#67605b'
 export default function Accelerator({ active }: Props) {
   return (
     <svg
-      viewBox="0 0 900 300"
+      viewBox="0 30 900 260"
       className="h-auto w-full"
       style={{ fontFamily: 'var(--font-mono)' }}
       role="img"
@@ -86,7 +86,7 @@ export default function Accelerator({ active }: Props) {
             style={{ animation: `dustFeed 2.1s ${d}s linear infinite` }}
           />
         ))}
-        <text x={108} y={274} textAnchor="middle" fill={MUTED} fontSize="11" letterSpacing="1.44">
+        <text x={108} y={274} textAnchor="middle" fill={MUTED} fontSize="11" letterSpacing="1.44" className="max-sm:hidden">
           01 FEED
         </text>
       </g>
@@ -109,7 +109,7 @@ export default function Accelerator({ active }: Props) {
             style={{ animation: `fieldPulse 2.4s ${i * 0.25}s ease-in-out infinite` }}
           />
         ))}
-        <text x={260} y={274} textAnchor="middle" fill="#36363c" fontSize="11" letterSpacing="1.44">
+        <text x={260} y={274} textAnchor="middle" fill="#36363c" fontSize="11" letterSpacing="1.44" className="max-sm:hidden">
           02 CHARGE
         </text>
       </g>
@@ -139,7 +139,7 @@ export default function Accelerator({ active }: Props) {
             </g>
           )
         })}
-        <text x={520} y={274} textAnchor="middle" fill="#7a2500" fontSize="11" letterSpacing="1.44">
+        <text x={520} y={274} textAnchor="middle" fill="#7a2500" fontSize="11" letterSpacing="1.44" className="max-sm:hidden">
           03 ACCELERATE
         </text>
       </g>

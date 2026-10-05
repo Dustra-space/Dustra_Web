@@ -57,11 +57,8 @@ export default function Concept() {
           <span>Conceptual illustration</span>
           <span>Not to scale</span>
         </div>
-        <div className="-mx-1 overflow-x-auto">
-          <div className="min-w-[560px] px-1">
-            <Accelerator active={active} />
-          </div>
-        </div>
+        {/* Scales to the card width; on phones the stage names come from the cards below */}
+        <Accelerator active={active} />
 
         {/* Hovering or focusing a stage highlights it in the drawing */}
         <ol className="mt-6 grid gap-px overflow-hidden rounded-xl bg-[color:var(--color-rule)] sm:grid-cols-3">
