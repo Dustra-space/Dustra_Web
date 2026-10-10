@@ -127,27 +127,27 @@ export const team: { eyebrow: string; title: string; blurb: string; members: Mem
   members: [
     {
       name: 'Lennart Gröger',
-      role: 'Particle feed',
+      role: 'Particle feed & Contact',
       bio: 'Designs the hopper and feed that deliver a steady stream of dust.',
     },
     {
-      name: 'Ada Batu Yıldırım',
-      role: 'Electronics',
+      name: 'Ada Batu Yildirim',
+      role: 'Electronics & Simulations',
       bio: 'Develops the high-voltage electronics that power charging and acceleration.',
     },
     {
       name: 'Marie Frühauf',
-      role: 'Particle charging',
+      role: 'Particle charging & Safety',
       bio: 'Studies how grains pick up charge on contact, and how to make it reliable.',
     },
     {
       name: 'Loïc Cabon',
-      role: 'Machine learning',
+      role: 'Simulations & Sponsoring',
       bio: 'Builds models that speed up particle simulations and design work.',
     },
     {
       name: 'Saskia Tristani',
-      role: 'Acceleration',
+      role: 'Acceleration & Finances',
       bio: 'Designs the accelerator and simulates its fields and particle trajectories.',
     },
   ],
